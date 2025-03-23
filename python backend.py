@@ -6,11 +6,22 @@ from openai import OpenAIError
 import os
 
 # Initialize Flask app
-app = Flask(__name__) # Start Flask application
+app = Flask(__name__, template_folder='frontend')
 
-#Set users (source prompt codes)
-Person1="Basic"
-Person2="Advanced"
+# Debug info, prints path to pythond backend location
+print(f"Current working directory: {os.getcwd()}")
+
+# System prompts dictionary
+SYSTEM_PROMPTS = {
+    '1': "You are speaking to a child, be as basic as possible and use many brainrotted (for example skibidi toilet references) and gamer terms as possible, ideally at least 1 reference or term per sentence",
+    '2': "You are describing a scientific concept to experts. Answer the user's question based only on the following context. Ask the user for clarification if you can't fully answer based on the context. Make sure your answers are detailed. For each part of your response, reference the corresponding study that provided the information, with the study title as it would be referred to in a scientific paper (e.g. Murray et al, 2015)."
+}
+
+# Display names for the prompt styles
+PROMPT_NAMES = {
+    '1': "Basic",
+    '2': "Advanced"
+}
 
 # OpenAI API key setup from environment variable
 openai.api_key = os.getenv('OPENAI_API_KEY')
@@ -19,31 +30,42 @@ openai.api_key = os.getenv('OPENAI_API_KEY')
 if not openai.api_key:
     raise ValueError("OpenAI API key not found. Please set the OPENAI_API_KEY environment variable.")
 
-# Load FAISS indices and corresponding text chunks for each file
+# Load FAISS index and text chunks from their (single) directory. Currently must be named faiss_index.index etc. Change MyEPDFs code to name smth like 'saved papers'
 embedding_dir = "embeddings"
-indices = {}  # Dictionary to store FAISS indices for each file
-text_chunks = {}  # Dictionary to store text chunks for each file
+index_path = os.path.join(embedding_dir, "faiss_index.index")
+text_chunks_path = os.path.join(embedding_dir, "text_chunks.txt")
 
-for file in os.listdir(embedding_dir): #Detects named directories (modified from original)
-    folder_path = os.path.join(embedding_dir, file) 
-    if os.path.isdir(folder_path):  # Ensure it's a directory
-        try:   
-            index_path = os.path.join(folder_path, f"faiss_{file}.index") #links faiss file to directory path
-            indices[file] = faiss.read_index(index_path)
-            # Load text chunks
-            text_chunk_path = os.path.join(folder_path, f"text_chunks_{file}.txt") #links chunks to directory path
-            with open(text_chunk_path, 'r') as f:
-                 text_chunks[file] = f.read().split("\n----\n") #creates file containing all text chunks
-            print(f"Loaded embeddings for {file}")      
-        except Exception as e:
-            # Print error message if loading fails
-            print(f"Error loading data for file {file}: {e}")
+# Print debug info
+print(f"Embeddings directory: {embedding_dir}") #see line 34
+print(f"Index path: {index_path}") 
+print(f"Text chunks path: {text_chunks_path}")
 
-# Route to render the frontend (index.html)
-@app.route('/')#sends the html upon opening
+# Load the FAISS index and text chunks. Print statements ensure they are all loaded correctly
+try:
+    if os.path.exists(index_path):
+        embeddings = faiss.read_index(index_path)
+        print("FAISS index loaded successfully")
+    else:
+        print(f"Index file not found at {index_path}")
+        embeddings = None
+        
+    if os.path.exists(text_chunks_path):
+        with open(text_chunks_path, 'r') as f:
+            text_chunks = f.read().split("\n----\n")
+        print(f"Loaded {len(text_chunks)} text chunks successfully")
+    else:
+        print(f"Text chunks file not found at {text_chunks_path}")
+        text_chunks = []
+        
+except Exception as e:
+    print(f"Error loading embeddings: {str(e)}")
+    embeddings = None
+    text_chunks = []
+
+# Route to render the frontend
+@app.route('/')
 def index():
-    # Render the main HTML page
-    return render_template('index.html') #html must be called index.html
+    return render_template('index.html')
 
 # Route to handle chat API requests
 @app.route('/api/chat', methods=['POST'])
@@ -51,81 +73,59 @@ def chat():
     try:
         # Parse JSON data from the POST request
         data = request.json
-        user_query = data.get('message', '').strip()  # Extract the user query
-        selected_user = data.get('file')  # Extract the selected file from the frontend             may change, may be redundant
-        history = data.get('history', [])  # Extract conversation history. History is stored in users' browser, we do not need to define it
+        user_query = data.get('message', '').strip()
+        prompt_style = data.get('file')  # Now this is just the prompt style ID
+        history = data.get('history', [])
 
-    # Convert file selection to string matching directory name. May simplify later, will likely require coding in front and back ends
-        file_mapping = {
-             '1': Person1,
-             '2': Person2
-         }
-        selected_user = file_mapping.get(selected_user)
-        print(f"Mapped file: {selected_user}")
+        # Validate the user query and prompt style
+        if not user_query or not prompt_style:
+            return jsonify({"error": "Empty query or style not selected"}), 400
 
+        # Make sure we have a valid prompt style
+        if prompt_style not in SYSTEM_PROMPTS:
+            return jsonify({"error": "Invalid style selected"}), 400
+            
+        # Check if embeddings were loaded successfully
+        if embeddings is None:
+            return jsonify({"error": "Embeddings not loaded. Please check your index file."}), 500
 
-        # Validate the user query and selected user, basically a troubleshooter for if the search engine geeks out
-        if not user_query or not selected_user:
-            return jsonify({"error": "Empty query or file not selected"}), 400
-
-        # Ensure the selected file is found in the chunks/file dictionary
-        if selected_user not in indices:
-            return jsonify({"error": "Invalid file selected"}), 400
-
-        # Step 1: Embed the user's query using OpenAI's text embedding models (3-small, 3-large, ada-002),     tweak 
+        # Step 1: Embed the user's query
         response = openai.embeddings.create(
             model="text-embedding-3-small",
             input=[user_query]
         )
-        # Extract the embedding vector from the response
         query_embedding = np.array(response.data[0].embedding).reshape(1, -1)
         
-        # Step 2: Search for relevant text chunks using FAISS for the selected file
-        index = indices[selected_user]  # Get the FAISS index for the selected file
-        chunks = text_chunks[selected_user]  # Get the text chunks for the selected file
+        # Step 2: Search for relevant text chunks using FAISS
+        k = 10  # Number of nearest neighbors
+        distances, indices_result = embeddings.search(query_embedding, k)
 
-        k = 10  # Number of nearest neighbors to retrieve                                    tweak
-        # Perform the search on the FAISS index to find the most similar text chunks
-        distances, indices_result = index.search(query_embedding, k)
-
-        # Check if any relevant text chunks were found, error checking to ensure chunks are found
+        # Check if any relevant text chunks were found
         if len(indices_result[0]) == 0:
             return jsonify({"error": "No relevant text found"}), 404
 
-        # Gather the most relevant text chunks and their sources,       can be modified to include links to original texts
-        relevant_texts = []  # List to store relevant text chunks
-        sources = []  # List to store corresponding source filenames
+        # Gather the most relevant text chunks and their sources
+        relevant_texts = []
+        sources = []
         for idx in indices_result[0]:
-            if idx < len(chunks):
-                relevant_texts.append(chunks[idx])  # Add the text chunk to the list
-                # Extract the source filename from the chunk metadata
-                source = chunks[idx].split('\n')[0].replace('Source: ', '')
-                sources.append(source)  # Add the source to the list
-
-        # If no relevant texts are found, return an error
-        if not relevant_texts:
-            return jsonify({"error": "No relevant texts found"}), 404
+            if idx < len(text_chunks):
+                relevant_texts.append(text_chunks[idx])
+                source = text_chunks[idx].split('\n')[0].replace('Source: ', '')
+                sources.append(source)
 
         # Combine the relevant texts into a single context
-        context = "\n".join(relevant_texts)  # Concatenate all relevant text chunks
-        source_info = "\n".join([f"Source: {source}" for source in sources])  # Concatenate source information
+        context = "\n".join(relevant_texts)
+        source_info = "\n".join([f"Source: {source}" for source in sources])
 
-        # Step 3: Prepare the full conversation for GPT-4o, including history                         tweak
-        if selected_user==Person1:
-            messages = history + [
-                # Add system prompt to instruct GPT-4o to answer based on the provided context
-                {"role": "system", "content": "You are speaking to a child, be as basic as possible and use many brainrotted (for example skibidi toilet references) and gamer terms as possible, ideally at least 1 reference or term per sentence"},
-                {"role": "system", "content": f"Context: {context}\n{source_info}"},  # Provide context and sources
-                {"role": "user", "content": user_query},  # User's query
-            ]
-        elif selected_user==Person2:
-            messages = history + [
-                # Add system prompt to instruct GPT-4o to answer based on the provided context
-                {"role": "system", "content": "You are describing a scientific concept to experts. Answer the user’s question based only on the following context. Ask the user for clarification if you can't fully answer based on the context. Make sure your answers are detailed. For each part of your response, reference the corresponding study that provided the information, with the study title as it would be referred to in a scientific paper (e.g. Murray et al, 2015)."},
-                {"role": "system", "content": f"Context: {context}\n{source_info}"},  # Provide context and sources
-                {"role": "user", "content": user_query},  # User's query
-                ]
-#Add in other source prompts as necessary
+        # Step 3: Get the system prompt based on the selected style
+        system_prompt = SYSTEM_PROMPTS[prompt_style]
+        
+        # Prepare the conversation for GPT-4o
+        messages = history + [
+            {"role": "system", "content": system_prompt},
+            {"role": "system", "content": f"Context: {context}\n{source_info}"},
+            {"role": "user", "content": user_query},
+        ]
             
         # Call GPT-4o with the conversation history and context
         response = openai.chat.completions.create(
@@ -133,23 +133,20 @@ def chat():
             messages=messages
         )
 
-        # Extract the response from GPT-4o
+        # Extract the response
         gpt_response = response.choices[0].message.content
 
-        # Step 4: Return the response to the frontend
+        # Return the response to the frontend
         return jsonify({"response": gpt_response})
 
     except OpenAIError as e:
-        # Handle errors from the OpenAI API (or specific to GPT-4o)
         return jsonify({"error": f"Error communicating with GPT-4o: {str(e)}"}), 500
 
-    except Exception as e: # Lord pray we never see this
-        # Handle any other unexpected errors
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
         return jsonify({"error": f"An unexpected error occurred: {str(e)}"}), 500
-    
 
 # Run the Flask app
 if __name__ == "__main__":
-    # Run the app on the specified host and port
     app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 5000)))
-    #works for prototype, deployed on hiroku. Final production version may be deployed someplace else
