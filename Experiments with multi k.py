@@ -10,10 +10,8 @@ import re
 from difflib import SequenceMatcher  # For fuzzy matching
 import datetime  # Add this for timestamp directory names
 
-
 # Set your OpenAI API key (or ensure it is set in your environment)
 openai.api_key = os.getenv("OPENAI_API_KEY")
-
 if not openai.api_key:
     raise ValueError("Please set the OPENAI_API_KEY environment variable.")
 
@@ -21,7 +19,6 @@ def load_pdfs_from_directory(directory):
     """Load all PDFs from a directory and extract their text using PDFMiner."""
     pdf_texts = {}
     pdf_files = [f for f in os.listdir(directory) if f.endswith('.pdf')]
-    
     if not pdf_files:
         print(f"Error: No PDF files found in {directory}")
         return pdf_texts
@@ -36,7 +33,6 @@ def load_pdfs_from_directory(directory):
             # text.strip() = normalize whitespace (converts spaces, tabs, enters etc into 1 space)
             text = re.sub(r'\s+', ' ', text).strip()
             pdf_texts[filename] = text
-            print(f"Loaded {filename}: {len(text)} characters")
         except Exception as e:
             print(f"Error processing {filename}: {e}")
     return pdf_texts
@@ -141,8 +137,104 @@ def similarity_score(text1, text2):
     """Calculate fuzzy matching similarity between two texts."""
     return SequenceMatcher(None, text1.lower(), text2.lower()).ratio()
 
+def calculate_f1(text1, text2):
+    """Calculate F1 score between two texts based on token overlap"""
+    tokens1 = set(text1.lower().split())
+    tokens2 = set(text2.lower().split())
+    
+    if not tokens1 or not tokens2:
+        return 0.0
+    
+    true_positives = len(tokens1.intersection(tokens2))
+    precision = true_positives / len(tokens2) if tokens2 else 0
+    recall = true_positives / len(tokens1) if tokens1 else 0
+    
+    if precision + recall == 0:
+        return 0.0
+    
+    f1 = 2 * (precision * recall) / (precision + recall)
+    return f1
+
+def binary_relevance(chunk, answer, threshold=0.5):
+    """Determine if a chunk is relevant to the answer based on a similarity threshold"""
+    # Normalize texts
+    chunk_norm = re.sub(r'\s+', ' ', chunk).lower()
+    answer_norm = re.sub(r'\s+', ' ', str(answer)).lower()
+    
+    # Direct substring match
+    if answer_norm in chunk_norm or chunk_norm in answer_norm:
+        return 1
+    
+    # Fuzzy matching
+    sim = similarity_score(answer_norm, chunk_norm)
+    if sim >= threshold:
+        return 1
+    
+    # Word overlap ratio
+    answer_words = set(answer_norm.split())
+    chunk_words = set(chunk_norm.split())
+    if answer_words and len(answer_words.intersection(chunk_words)) / len(answer_words) >= threshold:
+        return 1
+    
+    return 0
+
+def evaluate_multi_k(query_results, correct_answer, max_k=20):
+    """
+    Evaluate the retrieval results at multiple k values (1, 3, 5, 10, 20)
+    Returns metrics at each k value
+    """
+    results = {}
+    
+    # Define the k values we want to evaluate
+    k_values_to_test = [1, 3, 5, 10, min(max_k, len(query_results))]
+    k_values_to_test = sorted(list(set(k_values_to_test)))  # Remove duplicates and sort
+    
+    for k in k_values_to_test:
+        top_k_chunks = query_results[:k]
+        
+        # Check if the answer is in any of the top-k chunks
+        relevance_scores = [binary_relevance(chunk["text"], correct_answer) for chunk in top_k_chunks]
+        found_in_top_k = any(relevance_scores)
+        
+        # Calculate the best match score within top-k
+        best_match_score = 0
+        best_f1_score = 0
+        best_chunk = ""
+        
+        for chunk in top_k_chunks:
+            chunk_text = chunk["text"]
+            sim_score = similarity_score(correct_answer, chunk_text)
+            f1 = calculate_f1(correct_answer, chunk_text)
+            
+            if sim_score > best_match_score:
+                best_match_score = sim_score
+                best_chunk = chunk_text
+            
+            if f1 > best_f1_score:
+                best_f1_score = f1
+        
+        # For precision and recall at k
+        true_positives = sum(relevance_scores)
+        precision_at_k = true_positives / k if k > 0 else 0
+        recall_at_k = 1.0 if true_positives > 0 else 0  # Assuming 1 correct answer
+        
+        # F1 at k
+        f1_at_k = 2 * (precision_at_k * recall_at_k) / (precision_at_k + recall_at_k) if (precision_at_k + recall_at_k) > 0 else 0
+        
+        results[f"top_{k}"] = {
+            "found": found_in_top_k,
+            "best_similarity": best_match_score,
+            "best_f1": best_f1_score,
+            "precision": precision_at_k,
+            "recall": recall_at_k,
+            "f1": f1_at_k,
+            "best_chunk": best_chunk
+        }
+    
+    return results
+
 def run_experiment(library_dir, queries_csv, chunk_size, overlap, embedding_model, k, results_dir):
-    """Runs one experiment with the given parameters with improved matching logic."""
+    """Runs one experiment with the given parameters with improved multi top-k and F1 scoring."""
     print(f"\nRunning experiment : chunk_size={chunk_size}, overlap={overlap}, "
           f"embedding_model={embedding_model}, k={k}")
           
@@ -157,9 +249,19 @@ def run_experiment(library_dir, queries_csv, chunk_size, overlap, embedding_mode
     except Exception as e:
         print(f"Error loading queries CSV: {e}")
         return 0
-        
-    all_best_scores = []  # Store best scores for each query
-    results = []
+    
+    # Track multiple metrics
+    metrics = {
+        "similarity_scores": [],
+        "f1_scores": [],
+        "top_1_accuracy": [],
+        "top_3_accuracy": [],
+        "top_5_accuracy": [],
+        "top_k_accuracy": []  # For the specified k value
+    }
+    
+    # For detailed result analysis
+    all_query_results = []
     
     for idx, row in tqdm(df.iterrows(), total=len(df), desc="Processing queries"):
         query = row["query"]
@@ -181,64 +283,85 @@ def run_experiment(library_dir, queries_csv, chunk_size, overlap, embedding_mode
             print(f"Error embedding query {idx}: {e}")
             continue
 
-        # Search FAISS index for the top k nearest neighbours
-        scores, indices_result = index.search(query_embedding, k)
-        best_score = 0
-        best_chunk = ""
+        # Use a larger k for evaluation (we'll evaluate at different k values)
+        max_k = max(k, 20)  # Use at least 20 for thorough evaluation
+        scores, indices_result = index.search(query_embedding, max_k)
         
+        # Prepare retrieved chunks with their metadata
+        retrieved_chunks = []
         for i, idx in enumerate(indices_result[0]):
-            if idx >= len(chunks):
-                continue
-                
-            chunk = chunks[idx]
-            chunk_norm = re.sub(r'\s+', ' ', chunk).lower()
-            
-            ''' Tries several matching approaches:''' #Each one is looped through. If score with a method is higher than the previous, it will replace the previous chunk
-            # 1. Direct substring match
-            if correct_answer in chunk_norm or chunk_norm in correct_answer:
-                best_chunk = chunk
-                best_score = 1.0
-                break
-                
-            # 2. Fuzzy matching (for minor differences)
-            sim_score = similarity_score(correct_answer, chunk_norm)
-            if sim_score > best_score:
-                best_score = sim_score
-                best_chunk = chunk
-                    
-            # 3. Word overlap ratio
-            answer_words = set(correct_answer.split())
-            chunk_words = set(chunk_norm.split())
-            if len(answer_words) > 0:
-                overlap_ratio = len(answer_words.intersection(chunk_words)) / len(answer_words)
-                if overlap_ratio > best_score:
-                    best_score = overlap_ratio
-                    best_chunk = chunk
+            if idx < len(chunks):
+                retrieved_chunks.append({
+                    "chunk_index": idx,
+                    "text": chunks[idx],
+                    "score": float(scores[0][i]),
+                    "metadata": metadata[idx] if idx < len(metadata) else {}
+                })
         
-        # Add the best score to our list
-        all_best_scores.append(best_score)
-            
-        # Store detailed results for debugging
-        results.append({
+        # Multi-k evaluation
+        evaluation_results = evaluate_multi_k(retrieved_chunks, correct_answer, max_k)
+        
+        # Store metrics for this query
+        metrics["similarity_scores"].append(evaluation_results[f"top_{k}"]["best_similarity"])
+        metrics["f1_scores"].append(evaluation_results[f"top_{k}"]["best_f1"])
+        metrics["top_1_accuracy"].append(1 if evaluation_results.get("top_1", {}).get("found", False) else 0)
+        metrics["top_3_accuracy"].append(1 if evaluation_results.get("top_3", {}).get("found", False) else 0)
+        metrics["top_5_accuracy"].append(1 if evaluation_results.get("top_5", {}).get("found", False) else 0)
+        metrics["top_k_accuracy"].append(1 if evaluation_results[f"top_{k}"]["found"] else 0)
+        
+        # Store detailed results for this query
+        query_result = {
+            "query_id": idx,
             "query": query,
             "answer": correct_answer,
-            "best_score": best_score,
-            "best_chunk": best_chunk if best_chunk else ""
-        })
+            "evaluation": evaluation_results,
+            "top_chunk": retrieved_chunks[0]["text"] if retrieved_chunks else "",
+            "top_score": retrieved_chunks[0]["score"] if retrieved_chunks else 0,
+        }
+        all_query_results.append(query_result)
 
-    # Calculate mean of best scores as the success rate
-    success_rate = np.mean(all_best_scores) if all_best_scores else 0
-    print(f"Success rate (mean similarity score): {success_rate:.3f}")
+    # Calculate aggregate metrics
+    results_summary = {
+        "chunk_size": chunk_size,
+        "overlap": overlap,
+        "embedding_model": embedding_model,
+        "k": k,
+        "mean_similarity": np.mean(metrics["similarity_scores"]) if metrics["similarity_scores"] else 0,
+        "mean_f1": np.mean(metrics["f1_scores"]) if metrics["f1_scores"] else 0,
+        "top_1_accuracy": np.mean(metrics["top_1_accuracy"]) if metrics["top_1_accuracy"] else 0,
+        "top_3_accuracy": np.mean(metrics["top_3_accuracy"]) if metrics["top_3_accuracy"] else 0,
+        "top_5_accuracy": np.mean(metrics["top_5_accuracy"]) if metrics["top_5_accuracy"] else 0,
+        "top_k_accuracy": np.mean(metrics["top_k_accuracy"]) if metrics["top_k_accuracy"] else 0,
+    }
+    
+    print(f"Results: Mean Similarity={results_summary['mean_similarity']:.3f}, "
+          f"Mean F1={results_summary['mean_f1']:.3f}, "
+          f"Top-{k} Accuracy={results_summary['top_k_accuracy']:.3f}")
+    
     # Save detailed results for analysis
-    results_df = pd.DataFrame(results)
+    results_df = pd.DataFrame([{
+        "query": r["query"],
+        "answer": r["answer"],
+        "top_chunk": r["top_chunk"],
+        "top_score": r["top_score"],
+        "similarity_score": r["evaluation"][f"top_{k}"]["best_similarity"],
+        "f1_score": r["evaluation"][f"top_{k}"]["best_f1"],
+        "found_in_top_k": r["evaluation"][f"top_{k}"]["found"],
+        "found_in_top_1": r["evaluation"].get("top_1", {}).get("found", False),
+        "found_in_top_3": r["evaluation"].get("top_3", {}).get("found", False),
+        "found_in_top_5": r["evaluation"].get("top_5", {}).get("found", False),
+    } for r in all_query_results])
+    
     results_file = os.path.join(results_dir, f"Results_cs{chunk_size}_ol{overlap}_k{k}.csv")
     results_df.to_csv(results_file, index=False)
-    return success_rate
+    
+    # Return the combined success metric (average of similarity and F1)
+    return results_summary
 
 def main():
     # Define your paths
     library_dir = "Experiment Test Papers"
-    queries_csv = "Experiment Questions.csv"
+    queries_csv = "Experiment Questions gemini.csv"
     
     # Create a timestamp-based directory for this experimental run
     timestamp = datetime.datetime.now().strftime("%m_%d_%H%M")
@@ -253,10 +376,10 @@ def main():
     print(f"Results will be saved in: {run_dir}")
     
     # Define parameter ranges for experiments
-    chunk_sizes = [1750, 2250, 2500, 2000]  
-    overlaps = [100] 
+    chunk_sizes = [475, 500, 525]  
+    overlaps = [125, 150, 175] 
     embedding_models = ["text-embedding-3-small"]
-    k_values = [7, 10]  # Make sure k is at least 1
+    k_values = [10]  # Make sure k is at least 1
     
     # List to hold results
     experiment_results = []
@@ -268,14 +391,8 @@ def main():
     for chunk_size, overlap, model_name, k in itertools.product(chunk_sizes, overlaps, embedding_models, k_values):
         print(f"\n=== Running experiment {experiment_counter} of {total_experiments} ===")
         try:
-            rate = run_experiment(library_dir, queries_csv, chunk_size, overlap, model_name, k, run_dir)
-            experiment_results.append({
-                "chunk_size": chunk_size,
-                "overlap": overlap,
-                "embedding_model": model_name,
-                "k": k,
-                "success_rate": rate
-            })
+            results = run_experiment(library_dir, queries_csv, chunk_size, overlap, model_name, k, run_dir)
+            experiment_results.append(results)
         except Exception as e:
             print(f"Experiment failed for parameters "
                   f"chunk_size={chunk_size}, overlap={overlap}, model={model_name}, k={k}: {e}")
@@ -290,15 +407,24 @@ def main():
     summary_file = os.path.join(run_dir, "experiment_results_summary.csv")
     results_df.to_csv(summary_file, index=False)
     
-    # Show best performing configuration
+    # Show best performing configuration based on combined metric
     if not results_df.empty:
-        best_row = results_df.loc[results_df['success_rate'].idxmax()]
+        # Add a combined metric column (average of F1 and top-k accuracy)
+        results_df["combined_score"] = (results_df["mean_f1"] + results_df["top_k_accuracy"]) / 2
+        
+        best_row = results_df.loc[results_df['combined_score'].idxmax()]
         print("\nBest configuration:")
         print(f"Chunk size: {best_row['chunk_size']}")
         print(f"Overlap: {best_row['overlap']}")
         print(f"Model: {best_row['embedding_model']}")
         print(f"k: {best_row['k']}")
-        print(f"Success rate: {best_row['success_rate']:.3f}")
+        print(f"Mean Similarity: {best_row['mean_similarity']:.3f}")
+        print(f"Mean F1 Score: {best_row['mean_f1']:.3f}")
+        print(f"Top-1 Accuracy: {best_row['top_1_accuracy']:.3f}")
+        print(f"Top-3 Accuracy: {best_row['top_3_accuracy']:.3f}")
+        print(f"Top-5 Accuracy: {best_row['top_5_accuracy']:.3f}")
+        print(f"Top-{int(best_row['k'])} Accuracy: {best_row['top_k_accuracy']:.3f}")
+        print(f"Combined Score: {best_row['combined_score']:.3f}")
         
         # Save best results in the run directory
         best_config_file = os.path.join(run_dir, f"Best_results_cs{int(best_row['chunk_size'])}_ol{int(best_row['overlap'])}_k{int(best_row['k'])}.csv")

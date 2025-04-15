@@ -1,0 +1,439 @@
+2025-04-15 01:47:36,851 [INFO] ⬇️ Attempting to download: Host circadian clocks do not set the schedule for the within-host replication of malaria parasites. (DOI: 10.1098/rspb.2020.0347)
+2025-04-15 01:47:37,580 [INFO] 🔓 Open Access PDF found via Unpaywall: https://royalsocietypublishing.org/doi/pdf/10.1098/rspb.2020.0347
+2025-04-15 01:47:37,910 [WARNING] Failed with status code: 403
+2025-04-15 01:47:38,998 [WARNING] Failed with status code: 403
+2025-04-15 01:47:41,073 [WARNING] Failed with status code: 403
+2025-04-15 01:47:41,074 [INFO] 🔍 Trying direct DOI resolution: https://doi.org/10.1098/rspb.2020.0347
+2025-04-15 01:47:41,301 [INFO] 🏛️ Trying institutional access: https://login.ezproxy.is.ed.ac.uk/login?url=https://doi.org/10.1098/rspb.2020.0347
+2025-04-15 01:47:41,429 [WARNING] Failed with status code: 404
+2025-04-15 01:47:42,525 [WARNING] Failed with status code: 404
+2025-04-15 01:47:44,609 [WARNING] Failed with status code: 404
+2025-04-15 01:47:44,611 [INFO] 📚 Trying Royal Society-specific approach: https://login.ezproxy.is.ed.ac.uk/login?url=https://royalsocietypublishing.org/doi/pdf/10.1098/rspb.2020.0347
+2025-04-15 01:47:44,679 [WARNING] Failed with status code: 404
+2025-04-15 01:47:45,713 [WARNING] Failed with status code: 404
+2025-04-15 01:47:47,751 [WARNING] Failed with status code: 404
+2025-04-15 01:47:47,755 [WARNING] ❌ Could not download: 10.1098/rspb.2020.0347 - Host circadian clocks do not set the schedule for the within-host replication of malaria parasites.
+2025-04-15 01:47:47,904 [INFO] ⬇️ Attempting to download: Influence of hepatitis C virus co-infection and hepatitis C virus treatment on risk of chronic kidney disease in HIV-positive persons. (DOI: 10.1097/QAD.0000000000002570)
+2025-04-15 01:47:48,483 [INFO] 🔓 Open Access PDF found via Unpaywall: https://www.pure.ed.ac.uk/ws/files/144560390/AIDS_D_20_00052_R1.pdf
+2025-04-15 01:47:49,620 [INFO] ✅ Downloaded via Unpaywall: Influence of hepatitis C virus co-infection and hepatitis C virus treatment on risk of chronic kidney disease in HIV-positive persons.
+2025-04-15 01:47:49,764 [INFO] ⬇️ Attempting to download: Acapsular Staphylococcus aureus with a non-functional agr regains capsule expression after passage through the bloodstream in a bacteremia mouse model. (DOI: 10.1038/s41598-020-70671-1)
+2025-04-15 01:47:50,581 [INFO] 🔓 Open Access PDF found via Unpaywall: https://ri.conicet.gov.ar/bitstream/11336/151722/2/CONICET_Digital_Nro.7697ee06-da29-4ad3-88f2-7f26b18d94ee_A.pdf
+2025-04-15 01:48:09,100 [INFO] ✅ Downloaded via Unpaywall: Acapsular Staphylococcus aureus with a non-functional agr regains capsule expression after passage through the bloodstream in a bacteremia mouse model.
+2025-04-15 01:48:09,238 [INFO] ⬇️ Attempting to download: Geographical and temporal distribution of SARS-CoV-2 clades in the WHO European Region, January to June 2020. (DOI: 10.2807/1560-7917.ES.2020.25.32.2001410)
+2025-04-15 01:48:10,556 [INFO] 🔓 Open Access PDF found via Unpaywall: https://www.eurosurveillance.org/deliver/fulltext/eurosurveillance/25/32/eurosurv-25-32-2.pdf?itemId=%2Fcontent%2F10.2807%2F1560-7917.ES.2020.25.32.2001410&mimeType=pdf&containerItemId=content/eurosurveillance
+2025-04-15 01:48:11,404 [INFO] ✅ Downloaded via Unpaywall: Geographical and temporal distribution of SARS-CoV-2 clades in the WHO European Region, January to June 2020.
+2025-04-15 01:48:11,558 [INFO] ⬇️ Attempting to download: Limitation of spiral microchannels for particle separation in heterogeneous mixtures: Impact of particles' size and deformability. (DOI: 10.1063/5.0009673)
+2025-04-15 01:48:12,207 [INFO] 🔍 Trying direct DOI resolution: https://doi.org/10.1063/5.0009673
+2025-04-15 01:48:12,500 [INFO] 🏛️ Trying institutional access: https://login.ezproxy.is.ed.ac.uk/login?url=https://doi.org/10.1063/5.0009673
+2025-04-15 01:48:12,633 [WARNING] Failed with status code: 404
+2025-04-15 01:48:13,669 [WARNING] Failed with status code: 404
+2025-04-15 01:48:15,701 [WARNING] Failed with status code: 404
+2025-04-15 01:48:15,703 [WARNING] ❌ Could not download: 10.1063/5.0009673 - Limitation of spiral microchannels for particle separation in heterogeneous mixtures: Impact of particles' size and deformability.
+2025-04-15 01:48:15,840 [INFO] ⬇️ Attempting to download: Quorum sensing in African trypanosomes. (DOI: 10.1016/j.mib.2019.07.001)
+2025-04-15 01:48:16,814 [INFO] 🔍 Trying direct DOI resolution: https://doi.org/10.1016/j.mib.2019.07.001
+2025-04-15 01:48:17,470 [INFO] 🏛️ Trying institutional access: https://login.ezproxy.is.ed.ac.uk/login?url=https://doi.org/10.1016/j.mib.2019.07.001
+2025-04-15 01:48:17,604 [WARNING] Failed with status code: 404
+2025-04-15 01:48:18,652 [WARNING] Failed with status code: 404
+2025-04-15 01:48:20,687 [WARNING] Failed with status code: 404
+2025-04-15 01:48:20,688 [INFO] 📚 Trying ScienceDirect-specific approach: https://login.ezproxy.is.ed.ac.uk/login?url=https://www.sciencedirect.com/science/article/pii/j.mib.2019.07.001/pdfft
+2025-04-15 01:48:20,720 [WARNING] Failed with status code: 404
+2025-04-15 01:48:21,754 [WARNING] Failed with status code: 404
+2025-04-15 01:48:23,788 [WARNING] Failed with status code: 404
+2025-04-15 01:48:23,789 [WARNING] ❌ Could not download: 10.1016/j.mib.2019.07.001 - Quorum sensing in African trypanosomes.
+2025-04-15 01:48:23,915 [INFO] ⬇️ Attempting to download: Positive impact of preventative chemotherapy during a national helminth control program: Perception and KAP. (DOI: 10.1371/journal.pntd.0008494)
+2025-04-15 01:48:24,504 [INFO] 🔓 Open Access PDF found via Unpaywall: https://www.pure.ed.ac.uk/ws/files/162139229/journal.pntd.0008494.pdf
+2025-04-15 01:48:25,425 [INFO] ✅ Downloaded via Unpaywall: Positive impact of preventative chemotherapy during a national helminth control program: Perception and KAP.
+2025-04-15 01:48:25,548 [INFO] ⬇️ Attempting to download: Efficacy and safety of treatment with omalizumab for chronic spontaneous urticaria: A systematic review for the EAACI Biologicals Guidelines. (DOI: 10.1111/all.14547)
+2025-04-15 01:48:26,097 [INFO] 🔓 Open Access PDF found via Unpaywall: https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/all.14547
+2025-04-15 01:48:26,459 [WARNING] Failed with status code: 403
+2025-04-15 01:48:27,573 [WARNING] Failed with status code: 403
+2025-04-15 01:48:29,652 [WARNING] Failed with status code: 403
+2025-04-15 01:48:29,654 [INFO] 🔍 Trying direct DOI resolution: https://doi.org/10.1111/all.14547
+2025-04-15 01:48:29,961 [INFO] 🏛️ Trying institutional access: https://login.ezproxy.is.ed.ac.uk/login?url=https://doi.org/10.1111/all.14547
+2025-04-15 01:48:30,105 [WARNING] Failed with status code: 404
+2025-04-15 01:48:31,137 [WARNING] Failed with status code: 404
+2025-04-15 01:48:33,170 [WARNING] Failed with status code: 404
+2025-04-15 01:48:33,172 [INFO] 📚 Trying Wiley-specific approach: https://login.ezproxy.is.ed.ac.uk/login?url=https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/all.14547
+2025-04-15 01:48:33,208 [WARNING] Failed with status code: 404
+2025-04-15 01:48:34,244 [WARNING] Failed with status code: 404
+2025-04-15 01:48:36,298 [WARNING] Failed with status code: 404
+2025-04-15 01:48:36,301 [WARNING] ❌ Could not download: 10.1111/all.14547 - Efficacy and safety of treatment with omalizumab for chronic spontaneous urticaria: A systematic review for the EAACI Biologicals Guidelines.
+2025-04-15 01:48:36,472 [INFO] ⬇️ Attempting to download: Assessing the effect of insecticide-treated cattle on tsetse abundance and trypanosome transmission at the wildlife-livestock interface in Serengeti, Tanzania. (DOI: 10.1371/journal.pntd.0008288)
+2025-04-15 01:48:39,798 [INFO] ⬇️ Attempting to download: Host circadian clocks do not set the schedule for the within-host replication of malaria parasites. (DOI: 10.1098/rspb.2020.0347)
+2025-04-15 01:48:40,455 [INFO] 🔓 Open Access PDF found via Unpaywall: https://royalsocietypublishing.org/doi/pdf/10.1098/rspb.2020.0347
+2025-04-15 01:48:40,533 [WARNING] Failed with status code: 403
+2025-04-15 01:48:41,633 [WARNING] Failed with status code: 403
+2025-04-15 01:48:43,709 [WARNING] Failed with status code: 403
+2025-04-15 01:48:43,711 [INFO] 🔍 Trying direct DOI resolution: https://doi.org/10.1098/rspb.2020.0347
+2025-04-15 01:48:43,976 [INFO] 🏛️ Trying institutional access: https://login.ezproxy.is.ed.ac.uk/login?url=https://doi.org/10.1098/rspb.2020.0347
+2025-04-15 01:48:44,117 [WARNING] Failed with status code: 404
+2025-04-15 01:48:45,149 [WARNING] Failed with status code: 404
+2025-04-15 01:48:47,190 [WARNING] Failed with status code: 404
+2025-04-15 01:48:47,192 [INFO] 📚 Trying Royal Society-specific approach: https://login.ezproxy.is.ed.ac.uk/login?url=https://royalsocietypublishing.org/doi/pdf/10.1098/rspb.2020.0347
+2025-04-15 01:48:47,225 [WARNING] Failed with status code: 404
+2025-04-15 01:48:48,261 [WARNING] Failed with status code: 404
+2025-04-15 01:48:50,344 [WARNING] Failed with status code: 404
+2025-04-15 01:48:50,346 [WARNING] ❌ Could not download: 10.1098/rspb.2020.0347 - Host circadian clocks do not set the schedule for the within-host replication of malaria parasites.
+2025-04-15 01:48:50,590 [INFO] ⬇️ Attempting to download: Influence of hepatitis C virus co-infection and hepatitis C virus treatment on risk of chronic kidney disease in HIV-positive persons. (DOI: 10.1097/QAD.0000000000002570)
+2025-04-15 01:48:51,816 [INFO] 🔓 Open Access PDF found via Unpaywall: https://www.pure.ed.ac.uk/ws/files/144560390/AIDS_D_20_00052_R1.pdf
+2025-04-15 01:48:52,970 [INFO] ✅ Downloaded via Unpaywall: Influence of hepatitis C virus co-infection and hepatitis C virus treatment on risk of chronic kidney disease in HIV-positive persons.
+2025-04-15 01:48:53,089 [INFO] ⬇️ Attempting to download: Acapsular Staphylococcus aureus with a non-functional agr regains capsule expression after passage through the bloodstream in a bacteremia mouse model. (DOI: 10.1038/s41598-020-70671-1)
+2025-04-15 01:48:53,716 [INFO] 🔓 Open Access PDF found via Unpaywall: https://ri.conicet.gov.ar/bitstream/11336/151722/2/CONICET_Digital_Nro.7697ee06-da29-4ad3-88f2-7f26b18d94ee_A.pdf
+2025-04-15 01:49:09,836 [INFO] ✅ Downloaded via Unpaywall: Acapsular Staphylococcus aureus with a non-functional agr regains capsule expression after passage through the bloodstream in a bacteremia mouse model.
+2025-04-15 01:49:09,978 [INFO] ⬇️ Attempting to download: Geographical and temporal distribution of SARS-CoV-2 clades in the WHO European Region, January to June 2020. (DOI: 10.2807/1560-7917.ES.2020.25.32.2001410)
+2025-04-15 01:49:11,631 [INFO] 🔓 Open Access PDF found via Unpaywall: https://www.eurosurveillance.org/deliver/fulltext/eurosurveillance/25/32/eurosurv-25-32-2.pdf?itemId=%2Fcontent%2F10.2807%2F1560-7917.ES.2020.25.32.2001410&mimeType=pdf&containerItemId=content/eurosurveillance
+2025-04-15 01:49:12,163 [INFO] ✅ Downloaded via Unpaywall: Geographical and temporal distribution of SARS-CoV-2 clades in the WHO European Region, January to June 2020.
+2025-04-15 01:49:12,293 [INFO] ⬇️ Attempting to download: Limitation of spiral microchannels for particle separation in heterogeneous mixtures: Impact of particles' size and deformability. (DOI: 10.1063/5.0009673)
+2025-04-15 01:49:12,864 [INFO] 🔍 Trying direct DOI resolution: https://doi.org/10.1063/5.0009673
+2025-04-15 01:49:13,200 [INFO] 🏛️ Trying institutional access: https://login.ezproxy.is.ed.ac.uk/login?url=https://doi.org/10.1063/5.0009673
+2025-04-15 01:49:13,338 [WARNING] Failed with status code: 404
+2025-04-15 01:49:14,373 [WARNING] Failed with status code: 404
+2025-04-15 01:49:16,408 [WARNING] Failed with status code: 404
+2025-04-15 01:49:16,409 [WARNING] ❌ Could not download: 10.1063/5.0009673 - Limitation of spiral microchannels for particle separation in heterogeneous mixtures: Impact of particles' size and deformability.
+2025-04-15 01:49:16,542 [INFO] ⬇️ Attempting to download: Quorum sensing in African trypanosomes. (DOI: 10.1016/j.mib.2019.07.001)
+2025-04-15 01:49:17,592 [INFO] 🔍 Trying direct DOI resolution: https://doi.org/10.1016/j.mib.2019.07.001
+2025-04-15 01:49:18,274 [INFO] 🏛️ Trying institutional access: https://login.ezproxy.is.ed.ac.uk/login?url=https://doi.org/10.1016/j.mib.2019.07.001
+2025-04-15 01:49:18,451 [WARNING] Failed with status code: 404
+2025-04-15 01:49:19,487 [WARNING] Failed with status code: 404
+2025-04-15 01:49:21,523 [WARNING] Failed with status code: 404
+2025-04-15 01:49:21,525 [INFO] 📚 Trying ScienceDirect-specific approach: https://login.ezproxy.is.ed.ac.uk/login?url=https://www.sciencedirect.com/science/article/pii/j.mib.2019.07.001/pdfft
+2025-04-15 01:49:21,576 [WARNING] Failed with status code: 404
+2025-04-15 01:49:22,619 [WARNING] Failed with status code: 404
+2025-04-15 01:49:24,667 [WARNING] Failed with status code: 404
+2025-04-15 01:49:24,669 [WARNING] ❌ Could not download: 10.1016/j.mib.2019.07.001 - Quorum sensing in African trypanosomes.
+2025-04-15 01:49:24,830 [INFO] ⬇️ Attempting to download: Positive impact of preventative chemotherapy during a national helminth control program: Perception and KAP. (DOI: 10.1371/journal.pntd.0008494)
+2025-04-15 01:49:25,401 [INFO] 🔓 Open Access PDF found via Unpaywall: https://www.pure.ed.ac.uk/ws/files/162139229/journal.pntd.0008494.pdf
+2025-04-15 01:49:26,245 [INFO] ✅ Downloaded via Unpaywall: Positive impact of preventative chemotherapy during a national helminth control program: Perception and KAP.
+2025-04-15 01:49:26,373 [INFO] ⬇️ Attempting to download: Efficacy and safety of treatment with omalizumab for chronic spontaneous urticaria: A systematic review for the EAACI Biologicals Guidelines. (DOI: 10.1111/all.14547)
+2025-04-15 01:49:26,893 [INFO] 🔓 Open Access PDF found via Unpaywall: https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/all.14547
+2025-04-15 01:49:27,142 [WARNING] Failed with status code: 403
+2025-04-15 01:49:28,217 [WARNING] Failed with status code: 403
+2025-04-15 01:49:30,310 [WARNING] Failed with status code: 403
+2025-04-15 01:49:30,313 [INFO] 🔍 Trying direct DOI resolution: https://doi.org/10.1111/all.14547
+2025-04-15 01:49:30,560 [INFO] 🏛️ Trying institutional access: https://login.ezproxy.is.ed.ac.uk/login?url=https://doi.org/10.1111/all.14547
+2025-04-15 01:49:30,709 [WARNING] Failed with status code: 404
+2025-04-15 01:49:31,741 [WARNING] Failed with status code: 404
+2025-04-15 01:49:33,781 [WARNING] Failed with status code: 404
+2025-04-15 01:49:33,783 [INFO] 📚 Trying Wiley-specific approach: https://login.ezproxy.is.ed.ac.uk/login?url=https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/all.14547
+2025-04-15 01:49:33,818 [WARNING] Failed with status code: 404
+2025-04-15 01:49:34,850 [WARNING] Failed with status code: 404
+2025-04-15 01:49:36,883 [WARNING] Failed with status code: 404
+2025-04-15 01:49:36,884 [WARNING] ❌ Could not download: 10.1111/all.14547 - Efficacy and safety of treatment with omalizumab for chronic spontaneous urticaria: A systematic review for the EAACI Biologicals Guidelines.
+2025-04-15 01:49:37,018 [INFO] ⬇️ Attempting to download: Assessing the effect of insecticide-treated cattle on tsetse abundance and trypanosome transmission at the wildlife-livestock interface in Serengeti, Tanzania. (DOI: 10.1371/journal.pntd.0008288)
+2025-04-15 01:49:38,068 [INFO] 🔓 Open Access PDF found via Unpaywall: https://journals.plos.org/plosntds/article/file?id=10.1371/journal.pntd.0008288&type=printable
+2025-04-15 01:49:38,577 [INFO] ✅ Downloaded via Unpaywall: Assessing the effect of insecticide-treated cattle on tsetse abundance and trypanosome transmission at the wildlife-livestock interface in Serengeti, Tanzania.
+2025-04-15 01:49:38,710 [INFO] ⬇️ Attempting to download: Global variability of the human IgG glycome. (DOI: 10.18632/aging.103884)
+2025-04-15 01:49:39,655 [INFO] 🔍 Trying direct DOI resolution: https://doi.org/10.18632/aging.103884
+2025-04-15 01:49:43,146 [INFO] 🏛️ Trying institutional access: https://login.ezproxy.is.ed.ac.uk/login?url=https://doi.org/10.18632/aging.103884
+2025-04-15 01:49:43,623 [WARNING] Failed with status code: 404
+2025-04-15 01:49:44,660 [WARNING] Failed with status code: 404
+2025-04-15 01:49:46,693 [WARNING] Failed with status code: 404
+2025-04-15 01:49:46,695 [WARNING] ❌ Could not download: 10.18632/aging.103884 - Global variability of the human IgG glycome.
+2025-04-15 01:49:46,701 [INFO] ✅ Download summary: 5 successful, 5 failed, 0 skipped
+2025-04-15 01:49:46,703 [INFO] Failed downloads:
+2025-04-15 01:49:46,704 [INFO]   - Host circadian clocks do not set the schedule for the within-host replication of malaria parasites. (DOI: 10.1098/rspb.2020.0347)
+2025-04-15 01:49:46,706 [INFO]   - Limitation of spiral microchannels for particle separation in heterogeneous mixtures: Impact of particles' size and deformability. (DOI: 10.1063/5.0009673)
+2025-04-15 01:49:46,723 [INFO]   - Quorum sensing in African trypanosomes. (DOI: 10.1016/j.mib.2019.07.001)
+2025-04-15 01:49:46,724 [INFO]   - Efficacy and safety of treatment with omalizumab for chronic spontaneous urticaria: A systematic review for the EAACI Biologicals Guidelines. (DOI: 10.1111/all.14547)
+2025-04-15 01:49:46,726 [INFO]   - Global variability of the human IgG glycome. (DOI: 10.18632/aging.103884)
+2025-04-15 01:49:46,727 [INFO] ✅ Script completed!
+2025-04-15 01:50:46,523 [INFO] ⬇️ Attempting to download: Host circadian clocks do not set the schedule for the within-host replication of malaria parasites. (DOI: 10.1098/rspb.2020.0347)
+2025-04-15 01:50:47,214 [INFO] 🔓 Open Access PDF found via Unpaywall: https://royalsocietypublishing.org/doi/pdf/10.1098/rspb.2020.0347
+2025-04-15 01:50:47,280 [WARNING] Failed with status code: 403
+2025-04-15 01:50:48,360 [WARNING] Failed with status code: 403
+2025-04-15 01:50:50,435 [WARNING] Failed with status code: 403
+2025-04-15 01:50:50,436 [INFO] 🔍 Trying direct DOI resolution: https://doi.org/10.1098/rspb.2020.0347
+2025-04-15 01:50:50,635 [INFO] 🏛️ Trying institutional access: https://www.myed.ed.ac.uk/myed-progressive/https://doi.org/10.1098/rspb.2020.0347
+2025-04-15 01:50:50,667 [WARNING] Failed with status code: 200
+2025-04-15 01:50:51,714 [WARNING] Failed with status code: 200
+2025-04-15 01:50:53,761 [WARNING] Failed with status code: 200
+2025-04-15 01:50:53,762 [INFO] 📚 Trying Royal Society-specific approach: https://www.myed.ed.ac.uk/myed-progressive/https://royalsocietypublishing.org/doi/pdf/10.1098/rspb.2020.0347
+2025-04-15 01:50:53,822 [WARNING] Failed with status code: 200
+2025-04-15 01:50:54,856 [WARNING] Failed with status code: 200
+2025-04-15 01:50:56,891 [WARNING] Failed with status code: 200
+2025-04-15 01:50:56,891 [WARNING] ❌ Could not download: 10.1098/rspb.2020.0347 - Host circadian clocks do not set the schedule for the within-host replication of malaria parasites.
+2025-04-15 01:50:57,030 [INFO] ⬇️ Attempting to download: Influence of hepatitis C virus co-infection and hepatitis C virus treatment on risk of chronic kidney disease in HIV-positive persons. (DOI: 10.1097/QAD.0000000000002570)
+2025-04-15 01:50:57,994 [INFO] 🔓 Open Access PDF found via Unpaywall: https://www.pure.ed.ac.uk/ws/files/144560390/AIDS_D_20_00052_R1.pdf
+2025-04-15 01:50:59,147 [INFO] ✅ Downloaded via Unpaywall: Influence of hepatitis C virus co-infection and hepatitis C virus treatment on risk of chronic kidney disease in HIV-positive persons.
+2025-04-15 01:50:59,327 [INFO] ⬇️ Attempting to download: Acapsular Staphylococcus aureus with a non-functional agr regains capsule expression after passage through the bloodstream in a bacteremia mouse model. (DOI: 10.1038/s41598-020-70671-1)
+2025-04-15 01:50:59,939 [INFO] 🔓 Open Access PDF found via Unpaywall: https://ri.conicet.gov.ar/bitstream/11336/151722/2/CONICET_Digital_Nro.7697ee06-da29-4ad3-88f2-7f26b18d94ee_A.pdf
+2025-04-15 01:51:19,020 [INFO] ✅ Downloaded via Unpaywall: Acapsular Staphylococcus aureus with a non-functional agr regains capsule expression after passage through the bloodstream in a bacteremia mouse model.
+2025-04-15 01:51:19,172 [INFO] ⬇️ Attempting to download: Geographical and temporal distribution of SARS-CoV-2 clades in the WHO European Region, January to June 2020. (DOI: 10.2807/1560-7917.ES.2020.25.32.2001410)
+2025-04-15 01:51:20,598 [INFO] 🔓 Open Access PDF found via Unpaywall: https://www.eurosurveillance.org/deliver/fulltext/eurosurveillance/25/32/eurosurv-25-32-2.pdf?itemId=%2Fcontent%2F10.2807%2F1560-7917.ES.2020.25.32.2001410&mimeType=pdf&containerItemId=content/eurosurveillance
+2025-04-15 01:51:21,215 [INFO] ✅ Downloaded via Unpaywall: Geographical and temporal distribution of SARS-CoV-2 clades in the WHO European Region, January to June 2020.
+2025-04-15 01:51:21,336 [INFO] ⬇️ Attempting to download: Limitation of spiral microchannels for particle separation in heterogeneous mixtures: Impact of particles' size and deformability. (DOI: 10.1063/5.0009673)
+2025-04-15 01:51:21,981 [INFO] 🔍 Trying direct DOI resolution: https://doi.org/10.1063/5.0009673
+2025-04-15 01:51:22,226 [INFO] 🏛️ Trying institutional access: https://www.myed.ed.ac.uk/myed-progressive/https://doi.org/10.1063/5.0009673
+2025-04-15 01:51:22,262 [WARNING] Failed with status code: 200
+2025-04-15 01:51:23,294 [WARNING] Failed with status code: 200
+2025-04-15 01:51:25,327 [WARNING] Failed with status code: 200
+2025-04-15 01:51:25,328 [WARNING] ❌ Could not download: 10.1063/5.0009673 - Limitation of spiral microchannels for particle separation in heterogeneous mixtures: Impact of particles' size and deformability.
+2025-04-15 01:51:25,452 [INFO] ⬇️ Attempting to download: Quorum sensing in African trypanosomes. (DOI: 10.1016/j.mib.2019.07.001)
+2025-04-15 01:51:26,266 [INFO] 🔍 Trying direct DOI resolution: https://doi.org/10.1016/j.mib.2019.07.001
+2025-04-15 01:51:26,986 [INFO] 🏛️ Trying institutional access: https://www.myed.ed.ac.uk/myed-progressive/https://doi.org/10.1016/j.mib.2019.07.001
+2025-04-15 01:51:27,018 [WARNING] Failed with status code: 200
+2025-04-15 01:51:28,129 [WARNING] Failed with status code: 200
+2025-04-15 01:51:30,163 [WARNING] Failed with status code: 200
+2025-04-15 01:51:30,164 [INFO] 📚 Trying ScienceDirect-specific approach: https://www.myed.ed.ac.uk/myed-progressive/https://www.sciencedirect.com/science/article/pii/j.mib.2019.07.001/pdfft
+2025-04-15 01:51:30,199 [WARNING] Failed with status code: 200
+2025-04-15 01:51:31,233 [WARNING] Failed with status code: 200
+2025-04-15 01:51:33,268 [WARNING] Failed with status code: 200
+2025-04-15 01:51:33,269 [WARNING] ❌ Could not download: 10.1016/j.mib.2019.07.001 - Quorum sensing in African trypanosomes.
+2025-04-15 01:51:33,412 [INFO] ⬇️ Attempting to download: Positive impact of preventative chemotherapy during a national helminth control program: Perception and KAP. (DOI: 10.1371/journal.pntd.0008494)
+2025-04-15 01:51:35,209 [INFO] 🔓 Open Access PDF found via Unpaywall: https://www.pure.ed.ac.uk/ws/files/162139229/journal.pntd.0008494.pdf
+2025-04-15 01:51:36,036 [INFO] ✅ Downloaded via Unpaywall: Positive impact of preventative chemotherapy during a national helminth control program: Perception and KAP.
+2025-04-15 01:51:36,175 [INFO] ⬇️ Attempting to download: Efficacy and safety of treatment with omalizumab for chronic spontaneous urticaria: A systematic review for the EAACI Biologicals Guidelines. (DOI: 10.1111/all.14547)
+2025-04-15 01:51:36,778 [INFO] 🔓 Open Access PDF found via Unpaywall: https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/all.14547
+2025-04-15 01:51:37,037 [WARNING] Failed with status code: 403
+2025-04-15 01:51:38,130 [WARNING] Failed with status code: 403
+2025-04-15 01:51:40,221 [WARNING] Failed with status code: 403
+2025-04-15 01:51:40,223 [INFO] 🔍 Trying direct DOI resolution: https://doi.org/10.1111/all.14547
+2025-04-15 01:51:40,484 [INFO] 🏛️ Trying institutional access: https://www.myed.ed.ac.uk/myed-progressive/https://doi.org/10.1111/all.14547
+2025-04-15 01:51:40,588 [WARNING] Failed with status code: 200
+2025-04-15 01:51:41,625 [WARNING] Failed with status code: 200
+2025-04-15 01:51:43,727 [WARNING] Failed with status code: 200
+2025-04-15 01:51:43,729 [INFO] 📚 Trying Wiley-specific approach: https://www.myed.ed.ac.uk/myed-progressive/https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/all.14547
+2025-04-15 01:51:43,762 [WARNING] Failed with status code: 200
+2025-04-15 01:51:44,804 [WARNING] Failed with status code: 200
+2025-04-15 01:51:46,843 [WARNING] Failed with status code: 200
+2025-04-15 01:51:46,844 [WARNING] ❌ Could not download: 10.1111/all.14547 - Efficacy and safety of treatment with omalizumab for chronic spontaneous urticaria: A systematic review for the EAACI Biologicals Guidelines.
+2025-04-15 01:51:46,971 [INFO] ⬇️ Attempting to download: Assessing the effect of insecticide-treated cattle on tsetse abundance and trypanosome transmission at the wildlife-livestock interface in Serengeti, Tanzania. (DOI: 10.1371/journal.pntd.0008288)
+2025-04-15 01:51:48,239 [INFO] 🔓 Open Access PDF found via Unpaywall: https://journals.plos.org/plosntds/article/file?id=10.1371/journal.pntd.0008288&type=printable
+2025-04-15 01:51:49,073 [INFO] ✅ Downloaded via Unpaywall: Assessing the effect of insecticide-treated cattle on tsetse abundance and trypanosome transmission at the wildlife-livestock interface in Serengeti, Tanzania.
+2025-04-15 01:51:49,228 [INFO] ⬇️ Attempting to download: Global variability of the human IgG glycome. (DOI: 10.18632/aging.103884)
+2025-04-15 01:51:50,450 [INFO] 🔍 Trying direct DOI resolution: https://doi.org/10.18632/aging.103884
+2025-04-15 01:51:51,946 [INFO] 🏛️ Trying institutional access: https://www.myed.ed.ac.uk/myed-progressive/https://doi.org/10.18632/aging.103884
+2025-04-15 01:51:51,979 [WARNING] Failed with status code: 200
+2025-04-15 01:51:53,014 [WARNING] Failed with status code: 200
+2025-04-15 01:51:55,052 [WARNING] Failed with status code: 200
+2025-04-15 01:51:55,055 [WARNING] ❌ Could not download: 10.18632/aging.103884 - Global variability of the human IgG glycome.
+2025-04-15 01:51:55,062 [INFO] ✅ Download summary: 5 successful, 5 failed, 0 skipped
+2025-04-15 01:51:55,063 [INFO] Failed downloads:
+2025-04-15 01:51:55,064 [INFO]   - Host circadian clocks do not set the schedule for the within-host replication of malaria parasites. (DOI: 10.1098/rspb.2020.0347)
+2025-04-15 01:51:55,066 [INFO]   - Limitation of spiral microchannels for particle separation in heterogeneous mixtures: Impact of particles' size and deformability. (DOI: 10.1063/5.0009673)
+2025-04-15 01:51:55,067 [INFO]   - Quorum sensing in African trypanosomes. (DOI: 10.1016/j.mib.2019.07.001)
+2025-04-15 01:51:55,068 [INFO]   - Efficacy and safety of treatment with omalizumab for chronic spontaneous urticaria: A systematic review for the EAACI Biologicals Guidelines. (DOI: 10.1111/all.14547)
+2025-04-15 01:51:55,069 [INFO]   - Global variability of the human IgG glycome. (DOI: 10.18632/aging.103884)
+2025-04-15 01:51:55,070 [INFO] ✅ Script completed!
+2025-04-15 01:52:40,105 [INFO] ⬇️ Attempting to download: Host circadian clocks do not set the schedule for the within-host replication of malaria parasites. (DOI: 10.1098/rspb.2020.0347)
+2025-04-15 01:52:40,982 [INFO] 🔓 Open Access PDF found via Unpaywall: https://royalsocietypublishing.org/doi/pdf/10.1098/rspb.2020.0347
+2025-04-15 01:52:41,179 [WARNING] Failed with status code: 403
+2025-04-15 01:52:42,281 [WARNING] Failed with status code: 403
+2025-04-15 01:52:44,383 [WARNING] Failed with status code: 403
+2025-04-15 01:52:44,385 [INFO] 🔍 Trying direct DOI resolution: https://doi.org/10.1098/rspb.2020.0347
+2025-04-15 01:52:44,625 [INFO] 🏛️ Trying institutional access: https://www.ease.ed.ac.uk/https://doi.org/10.1098/rspb.2020.0347
+2025-04-15 01:52:44,724 [WARNING] Failed with status code: 404
+2025-04-15 01:52:45,760 [WARNING] Failed with status code: 404
+2025-04-15 01:52:47,797 [WARNING] Failed with status code: 404
+2025-04-15 01:52:47,798 [INFO] 📚 Trying Royal Society-specific approach: https://www.ease.ed.ac.uk/https://royalsocietypublishing.org/doi/pdf/10.1098/rspb.2020.0347
+2025-04-15 01:52:47,835 [WARNING] Failed with status code: 404
+2025-04-15 01:52:48,869 [WARNING] Failed with status code: 404
+2025-04-15 01:52:50,906 [WARNING] Failed with status code: 404
+2025-04-15 01:52:50,907 [WARNING] ❌ Could not download: 10.1098/rspb.2020.0347 - Host circadian clocks do not set the schedule for the within-host replication of malaria parasites.
+2025-04-15 01:52:51,016 [INFO] ✅ File already exists: Influence of hepatitis C virus co-infection and hepatitis C virus treatment on risk of chronic kidne.pdf
+2025-04-15 01:52:51,124 [INFO] ✅ File already exists: Acapsular Staphylococcus aureus with a non-functional agr regains capsule expression after passage t.pdf
+2025-04-15 01:52:51,249 [INFO] ✅ File already exists: Geographical and temporal distribution of SARS-CoV-2 clades in the WHO European Region, January to J.pdf
+2025-04-15 01:52:51,358 [INFO] ⬇️ Attempting to download: Limitation of spiral microchannels for particle separation in heterogeneous mixtures: Impact of particles' size and deformability. (DOI: 10.1063/5.0009673)
+2025-04-15 01:52:53,170 [INFO] 🔍 Trying direct DOI resolution: https://doi.org/10.1063/5.0009673
+2025-04-15 01:52:53,336 [INFO] 🏛️ Trying institutional access: https://www.ease.ed.ac.uk/https://doi.org/10.1063/5.0009673
+2025-04-15 01:52:53,448 [WARNING] Failed with status code: 404
+2025-04-15 01:52:54,484 [WARNING] Failed with status code: 404
+2025-04-15 01:52:56,518 [WARNING] Failed with status code: 404
+2025-04-15 01:52:56,519 [WARNING] ❌ Could not download: 10.1063/5.0009673 - Limitation of spiral microchannels for particle separation in heterogeneous mixtures: Impact of particles' size and deformability.
+2025-04-15 01:52:56,640 [INFO] ⬇️ Attempting to download: Quorum sensing in African trypanosomes. (DOI: 10.1016/j.mib.2019.07.001)
+2025-04-15 01:52:57,156 [INFO] 🔍 Trying direct DOI resolution: https://doi.org/10.1016/j.mib.2019.07.001
+2025-04-15 01:52:57,755 [INFO] 🏛️ Trying institutional access: https://www.ease.ed.ac.uk/https://doi.org/10.1016/j.mib.2019.07.001
+2025-04-15 01:52:57,879 [WARNING] Failed with status code: 404
+2025-04-15 01:52:58,913 [WARNING] Failed with status code: 404
+2025-04-15 01:53:00,947 [WARNING] Failed with status code: 404
+2025-04-15 01:53:00,948 [INFO] 📚 Trying ScienceDirect-specific approach: https://www.ease.ed.ac.uk/https://www.sciencedirect.com/science/article/pii/j.mib.2019.07.001/pdfft
+2025-04-15 01:53:00,980 [WARNING] Failed with status code: 404
+2025-04-15 01:53:02,015 [WARNING] Failed with status code: 404
+2025-04-15 01:53:04,048 [WARNING] Failed with status code: 404
+2025-04-15 01:53:04,049 [WARNING] ❌ Could not download: 10.1016/j.mib.2019.07.001 - Quorum sensing in African trypanosomes.
+2025-04-15 01:53:04,161 [INFO] ✅ File already exists: Positive impact of preventative chemotherapy during a national helminth control program Perception a.pdf
+2025-04-15 01:53:04,279 [INFO] ⬇️ Attempting to download: Efficacy and safety of treatment with omalizumab for chronic spontaneous urticaria: A systematic review for the EAACI Biologicals Guidelines. (DOI: 10.1111/all.14547)
+2025-04-15 01:53:05,166 [INFO] 🔓 Open Access PDF found via Unpaywall: https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/all.14547
+2025-04-15 01:53:05,241 [WARNING] Failed with status code: 403
+2025-04-15 01:53:06,317 [WARNING] Failed with status code: 403
+2025-04-15 01:53:08,390 [WARNING] Failed with status code: 403
+2025-04-15 01:53:08,392 [INFO] 🔍 Trying direct DOI resolution: https://doi.org/10.1111/all.14547
+2025-04-15 01:53:08,578 [INFO] 🏛️ Trying institutional access: https://www.ease.ed.ac.uk/https://doi.org/10.1111/all.14547
+2025-04-15 01:53:08,674 [WARNING] Failed with status code: 404
+2025-04-15 01:53:09,707 [WARNING] Failed with status code: 404
+2025-04-15 01:53:11,740 [WARNING] Failed with status code: 404
+2025-04-15 01:53:11,741 [INFO] 📚 Trying Wiley-specific approach: https://www.ease.ed.ac.uk/https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/all.14547
+2025-04-15 01:53:11,772 [WARNING] Failed with status code: 404
+2025-04-15 01:53:12,811 [WARNING] Failed with status code: 404
+2025-04-15 01:53:14,842 [WARNING] Failed with status code: 404
+2025-04-15 01:53:14,843 [WARNING] ❌ Could not download: 10.1111/all.14547 - Efficacy and safety of treatment with omalizumab for chronic spontaneous urticaria: A systematic review for the EAACI Biologicals Guidelines.
+2025-04-15 01:53:14,965 [INFO] ✅ File already exists: Assessing the effect of insecticide-treated cattle on tsetse abundance and trypanosome transmission .pdf
+2025-04-15 01:53:15,079 [INFO] ⬇️ Attempting to download: Global variability of the human IgG glycome. (DOI: 10.18632/aging.103884)
+2025-04-15 01:53:16,087 [INFO] 🔍 Trying direct DOI resolution: https://doi.org/10.18632/aging.103884
+2025-04-15 01:53:17,377 [INFO] 🏛️ Trying institutional access: https://www.ease.ed.ac.uk/https://doi.org/10.18632/aging.103884
+2025-04-15 01:53:17,479 [WARNING] Failed with status code: 404
+2025-04-15 01:53:18,532 [WARNING] Failed with status code: 404
+2025-04-15 01:53:20,613 [WARNING] Failed with status code: 404
+2025-04-15 01:53:20,614 [WARNING] ❌ Could not download: 10.18632/aging.103884 - Global variability of the human IgG glycome.
+2025-04-15 01:53:20,619 [INFO] ✅ Download summary: 5 successful, 5 failed, 0 skipped
+2025-04-15 01:53:20,619 [INFO] Failed downloads:
+2025-04-15 01:53:20,621 [INFO]   - Host circadian clocks do not set the schedule for the within-host replication of malaria parasites. (DOI: 10.1098/rspb.2020.0347)
+2025-04-15 01:53:20,623 [INFO]   - Limitation of spiral microchannels for particle separation in heterogeneous mixtures: Impact of particles' size and deformability. (DOI: 10.1063/5.0009673)
+2025-04-15 01:53:20,624 [INFO]   - Quorum sensing in African trypanosomes. (DOI: 10.1016/j.mib.2019.07.001)
+2025-04-15 01:53:20,625 [INFO]   - Efficacy and safety of treatment with omalizumab for chronic spontaneous urticaria: A systematic review for the EAACI Biologicals Guidelines. (DOI: 10.1111/all.14547)
+2025-04-15 01:53:20,626 [INFO]   - Global variability of the human IgG glycome. (DOI: 10.18632/aging.103884)
+2025-04-15 01:53:20,626 [INFO] ✅ Script completed!
+2025-04-15 01:55:11,675 [INFO] ⬇️ Attempting to download: Host circadian clocks do not set the schedule for the within-host replication of malaria parasites. (DOI: 10.1098/rspb.2020.0347)
+2025-04-15 01:55:12,331 [INFO] 🔓 Open Access PDF found via Unpaywall: https://royalsocietypublishing.org/doi/pdf/10.1098/rspb.2020.0347
+2025-04-15 01:55:12,420 [WARNING] Failed with status code: 403
+2025-04-15 01:55:13,493 [WARNING] Failed with status code: 403
+2025-04-15 01:55:15,618 [WARNING] Failed with status code: 403
+2025-04-15 01:55:15,620 [INFO] 🔍 Trying direct DOI resolution: https://doi.org/10.1098/rspb.2020.0347
+2025-04-15 01:55:15,776 [INFO] 🏛️ Trying institutional access: https://login.eux.idm.oclc.org/login?url=https://doi.org/10.1098/rspb.2020.0347
+2025-04-15 01:55:15,997 [WARNING] Failed with status code: 200
+2025-04-15 01:55:17,182 [WARNING] Failed with status code: 200
+2025-04-15 01:55:19,285 [WARNING] Failed with status code: 200
+2025-04-15 01:55:19,286 [INFO] 📚 Trying Royal Society-specific approach: https://login.eux.idm.oclc.org/login?url=https://royalsocietypublishing.org/doi/pdf/10.1098/rspb.2020.0347
+2025-04-15 01:55:19,384 [WARNING] Failed with status code: 200
+2025-04-15 01:55:20,490 [WARNING] Failed with status code: 200
+2025-04-15 01:55:22,590 [WARNING] Failed with status code: 200
+2025-04-15 01:55:22,592 [WARNING] ❌ Could not download: 10.1098/rspb.2020.0347 - Host circadian clocks do not set the schedule for the within-host replication of malaria parasites.
+2025-04-15 01:55:22,689 [INFO] ⬇️ Attempting to download: Influence of hepatitis C virus co-infection and hepatitis C virus treatment on risk of chronic kidney disease in HIV-positive persons. (DOI: 10.1097/QAD.0000000000002570)
+2025-04-15 01:55:23,441 [INFO] 🔓 Open Access PDF found via Unpaywall: https://www.pure.ed.ac.uk/ws/files/144560390/AIDS_D_20_00052_R1.pdf
+2025-04-15 01:55:25,123 [INFO] ✅ Downloaded via Unpaywall: Influence of hepatitis C virus co-infection and hepatitis C virus treatment on risk of chronic kidney disease in HIV-positive persons.
+2025-04-15 01:55:25,299 [INFO] ⬇️ Attempting to download: Acapsular Staphylococcus aureus with a non-functional agr regains capsule expression after passage through the bloodstream in a bacteremia mouse model. (DOI: 10.1038/s41598-020-70671-1)
+2025-04-15 01:55:26,118 [INFO] 🔓 Open Access PDF found via Unpaywall: https://ri.conicet.gov.ar/bitstream/11336/151722/2/CONICET_Digital_Nro.7697ee06-da29-4ad3-88f2-7f26b18d94ee_A.pdf
+2025-04-15 01:55:46,668 [INFO] ✅ Downloaded via Unpaywall: Acapsular Staphylococcus aureus with a non-functional agr regains capsule expression after passage through the bloodstream in a bacteremia mouse model.
+2025-04-15 01:55:46,853 [INFO] ⬇️ Attempting to download: Geographical and temporal distribution of SARS-CoV-2 clades in the WHO European Region, January to June 2020. (DOI: 10.2807/1560-7917.ES.2020.25.32.2001410)
+2025-04-15 01:55:48,164 [INFO] 🔓 Open Access PDF found via Unpaywall: https://www.eurosurveillance.org/deliver/fulltext/eurosurveillance/25/32/eurosurv-25-32-2.pdf?itemId=%2Fcontent%2F10.2807%2F1560-7917.ES.2020.25.32.2001410&mimeType=pdf&containerItemId=content/eurosurveillance
+2025-04-15 01:55:48,950 [INFO] ✅ Downloaded via Unpaywall: Geographical and temporal distribution of SARS-CoV-2 clades in the WHO European Region, January to June 2020.
+2025-04-15 01:55:49,071 [INFO] ⬇️ Attempting to download: Limitation of spiral microchannels for particle separation in heterogeneous mixtures: Impact of particles' size and deformability. (DOI: 10.1063/5.0009673)
+2025-04-15 01:55:49,573 [INFO] 🔍 Trying direct DOI resolution: https://doi.org/10.1063/5.0009673
+2025-04-15 01:55:49,871 [INFO] 🏛️ Trying institutional access: https://login.eux.idm.oclc.org/login?url=https://doi.org/10.1063/5.0009673
+2025-04-15 01:55:49,974 [WARNING] Failed with status code: 200
+2025-04-15 01:55:51,081 [WARNING] Failed with status code: 200
+2025-04-15 01:55:53,186 [WARNING] Failed with status code: 200
+2025-04-15 01:55:53,187 [WARNING] ❌ Could not download: 10.1063/5.0009673 - Limitation of spiral microchannels for particle separation in heterogeneous mixtures: Impact of particles' size and deformability.
+2025-04-15 01:55:53,286 [INFO] ⬇️ Attempting to download: Quorum sensing in African trypanosomes. (DOI: 10.1016/j.mib.2019.07.001)
+2025-04-15 01:55:53,846 [INFO] 🔍 Trying direct DOI resolution: https://doi.org/10.1016/j.mib.2019.07.001
+2025-04-15 01:55:54,501 [INFO] 🏛️ Trying institutional access: https://login.eux.idm.oclc.org/login?url=https://doi.org/10.1016/j.mib.2019.07.001
+2025-04-15 01:55:54,691 [WARNING] Failed with status code: 200
+2025-04-15 01:55:55,892 [WARNING] Failed with status code: 200
+2025-04-15 01:55:58,101 [WARNING] Failed with status code: 200
+2025-04-15 01:55:58,104 [INFO] 📚 Trying ScienceDirect-specific approach: https://login.eux.idm.oclc.org/login?url=https://www.sciencedirect.com/science/article/pii/j.mib.2019.07.001/pdfft
+2025-04-15 01:55:58,303 [WARNING] Failed with status code: 200
+2025-04-15 01:55:59,515 [WARNING] Failed with status code: 200
+2025-04-15 01:56:01,717 [WARNING] Failed with status code: 200
+2025-04-15 01:56:01,720 [WARNING] ❌ Could not download: 10.1016/j.mib.2019.07.001 - Quorum sensing in African trypanosomes.
+2025-04-15 01:56:01,816 [INFO] ⬇️ Attempting to download: Positive impact of preventative chemotherapy during a national helminth control program: Perception and KAP. (DOI: 10.1371/journal.pntd.0008494)
+2025-04-15 01:56:02,387 [INFO] 🔓 Open Access PDF found via Unpaywall: https://www.pure.ed.ac.uk/ws/files/162139229/journal.pntd.0008494.pdf
+2025-04-15 01:56:03,436 [INFO] ✅ Downloaded via Unpaywall: Positive impact of preventative chemotherapy during a national helminth control program: Perception and KAP.
+2025-04-15 01:56:03,624 [INFO] ⬇️ Attempting to download: Efficacy and safety of treatment with omalizumab for chronic spontaneous urticaria: A systematic review for the EAACI Biologicals Guidelines. (DOI: 10.1111/all.14547)
+2025-04-15 01:56:04,268 [INFO] 🔓 Open Access PDF found via Unpaywall: https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/all.14547
+2025-04-15 01:56:04,585 [WARNING] Failed with status code: 403
+2025-04-15 01:56:05,664 [WARNING] Failed with status code: 403
+2025-04-15 01:56:07,756 [WARNING] Failed with status code: 403
+2025-04-15 01:56:07,757 [INFO] 🔍 Trying direct DOI resolution: https://doi.org/10.1111/all.14547
+2025-04-15 01:56:07,911 [INFO] 🏛️ Trying institutional access: https://login.eux.idm.oclc.org/login?url=https://doi.org/10.1111/all.14547
+2025-04-15 01:56:08,029 [WARNING] Failed with status code: 200
+2025-04-15 01:56:09,232 [WARNING] Failed with status code: 200
+2025-04-15 01:56:11,335 [WARNING] Failed with status code: 200
+2025-04-15 01:56:11,337 [INFO] 📚 Trying Wiley-specific approach: https://login.eux.idm.oclc.org/login?url=https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/all.14547
+2025-04-15 01:56:11,433 [WARNING] Failed with status code: 200
+2025-04-15 01:56:12,637 [WARNING] Failed with status code: 200
+2025-04-15 01:56:14,740 [WARNING] Failed with status code: 200
+2025-04-15 01:56:14,741 [WARNING] ❌ Could not download: 10.1111/all.14547 - Efficacy and safety of treatment with omalizumab for chronic spontaneous urticaria: A systematic review for the EAACI Biologicals Guidelines.
+2025-04-15 01:56:14,841 [INFO] ⬇️ Attempting to download: Assessing the effect of insecticide-treated cattle on tsetse abundance and trypanosome transmission at the wildlife-livestock interface in Serengeti, Tanzania. (DOI: 10.1371/journal.pntd.0008288)
+2025-04-15 01:56:15,697 [INFO] 🔓 Open Access PDF found via Unpaywall: https://journals.plos.org/plosntds/article/file?id=10.1371/journal.pntd.0008288&type=printable
+2025-04-15 01:56:16,481 [INFO] ✅ Downloaded via Unpaywall: Assessing the effect of insecticide-treated cattle on tsetse abundance and trypanosome transmission at the wildlife-livestock interface in Serengeti, Tanzania.
+2025-04-15 01:56:16,643 [INFO] ⬇️ Attempting to download: Global variability of the human IgG glycome. (DOI: 10.18632/aging.103884)
+2025-04-15 01:56:17,599 [INFO] 🔍 Trying direct DOI resolution: https://doi.org/10.18632/aging.103884
+2025-04-15 01:56:18,508 [INFO] 🏛️ Trying institutional access: https://login.eux.idm.oclc.org/login?url=https://doi.org/10.18632/aging.103884
+2025-04-15 01:56:18,646 [WARNING] Failed with status code: 200
+2025-04-15 01:56:19,751 [WARNING] Failed with status code: 200
+2025-04-15 01:56:21,851 [WARNING] Failed with status code: 200
+2025-04-15 01:56:21,852 [WARNING] ❌ Could not download: 10.18632/aging.103884 - Global variability of the human IgG glycome.
+2025-04-15 01:56:21,857 [INFO] ✅ Download summary: 5 successful, 5 failed, 0 skipped
+2025-04-15 01:56:21,859 [INFO] Failed downloads:
+2025-04-15 01:56:21,860 [INFO]   - Host circadian clocks do not set the schedule for the within-host replication of malaria parasites. (DOI: 10.1098/rspb.2020.0347)
+2025-04-15 01:56:21,862 [INFO]   - Limitation of spiral microchannels for particle separation in heterogeneous mixtures: Impact of particles' size and deformability. (DOI: 10.1063/5.0009673)
+2025-04-15 01:56:21,864 [INFO]   - Quorum sensing in African trypanosomes. (DOI: 10.1016/j.mib.2019.07.001)
+2025-04-15 01:56:21,866 [INFO]   - Efficacy and safety of treatment with omalizumab for chronic spontaneous urticaria: A systematic review for the EAACI Biologicals Guidelines. (DOI: 10.1111/all.14547)
+2025-04-15 01:56:21,867 [INFO]   - Global variability of the human IgG glycome. (DOI: 10.18632/aging.103884)
+2025-04-15 01:56:21,868 [INFO] ✅ Script completed!
+2025-04-15 02:01:07,106 [INFO] ⬇️ Attempting to download: Host circadian clocks do not set the schedule for the within-host replication of malaria parasites. (DOI: 10.1098/rspb.2020.0347)
+2025-04-15 02:01:07,890 [INFO] 🔓 Open Access PDF found via Unpaywall: https://royalsocietypublishing.org/doi/pdf/10.1098/rspb.2020.0347
+2025-04-15 02:01:08,002 [WARNING] Failed with status code: 403
+2025-04-15 02:01:09,081 [WARNING] Failed with status code: 403
+2025-04-15 02:01:11,173 [WARNING] Failed with status code: 403
+2025-04-15 02:01:11,174 [INFO] 🔍 Trying direct DOI resolution: https://doi.org/10.1098/rspb.2020.0347
+2025-04-15 02:01:11,397 [INFO] 🏛️ Trying institutional access: https://login.eux.idm.oclc.org/login?url=https://doi.org/10.1098/rspb.2020.0347
+2025-04-15 02:01:11,530 [WARNING] Failed with status code: 200
+2025-04-15 02:01:12,634 [WARNING] Failed with status code: 200
+2025-04-15 02:05:22,628 [ERROR] Error loading browser cookies: This operation requires admin. Please run as admin.
+2025-04-15 02:05:22,631 [INFO] ⬇️ Attempting to download: Host circadian clocks do not set the schedule for the within-host replication of malaria parasites. (DOI: 10.1098/rspb.2020.0347)
+2025-04-15 02:05:23,996 [INFO] 🔓 Open Access PDF found via Unpaywall: https://royalsocietypublishing.org/doi/pdf/10.1098/rspb.2020.0347
+2025-04-15 02:05:24,080 [WARNING] Failed with status code: 403
+2025-04-15 02:05:25,171 [WARNING] Failed with status code: 403
+2025-04-15 02:05:27,253 [WARNING] Failed with status code: 403
+2025-04-15 02:05:27,254 [INFO] 🔍 Trying direct DOI resolution: https://doi.org/10.1098/rspb.2020.0347
+2025-04-15 02:05:27,503 [INFO] 🏛️ Trying institutional access: https://login.eux.idm.oclc.org/login?url=https://doi.org/10.1098/rspb.2020.0347
+2025-04-15 02:05:27,651 [WARNING] Failed with status code: 200
+2025-04-15 02:05:28,753 [WARNING] Failed with status code: 200
+2025-04-15 02:05:30,858 [WARNING] Failed with status code: 200
+2025-04-15 02:05:30,862 [INFO] 📚 Trying ScienceDirect URL: https://login.eux.idm.oclc.org/login?url=https://www.sciencedirect.com/science/article/pii/S10109820200347/pdfft
+2025-04-15 02:05:30,958 [WARNING] Failed with status code: 200
+2025-04-15 02:05:32,161 [WARNING] Failed with status code: 200
+2025-04-15 02:05:34,365 [WARNING] Failed with status code: 200
+2025-04-15 02:05:34,366 [INFO] 📚 Trying ScienceDirect URL: https://login.eux.idm.oclc.org/login?url=https://www.sciencedirect.com/science/article/abs/pii/S10109820200347/pdfft
+2025-04-15 02:05:34,466 [WARNING] Failed with status code: 200
+2025-04-15 02:05:35,569 [WARNING] Failed with status code: 200
+2025-04-15 02:05:37,775 [WARNING] Failed with status code: 200
+2025-04-15 02:05:37,775 [INFO] 📚 Trying ScienceDirect URL: https://login.eux.idm.oclc.org/login?url=https://www.sciencedirect.com/science/article/S10109820200347/pdfft
+2025-04-15 02:05:37,873 [WARNING] Failed with status code: 200
+2025-04-15 02:05:39,076 [WARNING] Failed with status code: 200
+2025-04-15 02:05:41,180 [WARNING] Failed with status code: 200
+2025-04-15 02:05:41,182 [INFO] 📚 Trying Royal Society-specific approach: https://login.eux.idm.oclc.org/login?url=https://royalsocietypublishing.org/doi/pdf/10.1098/rspb.2020.0347
+2025-04-15 02:05:41,280 [WARNING] Failed with status code: 200
+2025-04-15 02:05:42,488 [WARNING] Failed with status code: 200
+2025-04-15 02:05:44,596 [WARNING] Failed with status code: 200
+2025-04-15 02:05:44,599 [WARNING] ❌ Could not download: 10.1098/rspb.2020.0347 - Host circadian clocks do not set the schedule for the within-host replication of malaria parasites.
+2025-04-15 02:05:48,962 [ERROR] Error loading browser cookies: This operation requires admin. Please run as admin.
+2025-04-15 02:05:48,965 [INFO] ⬇️ Attempting to download: Influence of hepatitis C virus co-infection and hepatitis C virus treatment on risk of chronic kidney disease in HIV-positive persons. (DOI: 10.1097/QAD.0000000000002570)
+2025-04-15 02:05:50,195 [INFO] 🔓 Open Access PDF found via Unpaywall: https://www.pure.ed.ac.uk/ws/files/144560390/AIDS_D_20_00052_R1.pdf
+2025-04-15 02:05:51,113 [INFO] ✅ Downloaded via Unpaywall: Influence of hepatitis C virus co-infection and hepatitis C virus treatment on risk of chronic kidney disease in HIV-positive persons.
+2025-04-15 02:05:55,508 [ERROR] Error loading browser cookies: This operation requires admin. Please run as admin.
+2025-04-15 02:05:55,510 [INFO] ⬇️ Attempting to download: Acapsular Staphylococcus aureus with a non-functional agr regains capsule expression after passage through the bloodstream in a bacteremia mouse model. (DOI: 10.1038/s41598-020-70671-1)
+2025-04-15 02:05:56,156 [INFO] 🔓 Open Access PDF found via Unpaywall: https://ri.conicet.gov.ar/bitstream/11336/151722/2/CONICET_Digital_Nro.7697ee06-da29-4ad3-88f2-7f26b18d94ee_A.pdf
+2025-04-15 02:06:13,691 [INFO] ✅ Downloaded via Unpaywall: Acapsular Staphylococcus aureus with a non-functional agr regains capsule expression after passage through the bloodstream in a bacteremia mouse model.
+2025-04-15 02:06:18,085 [ERROR] Error loading browser cookies: This operation requires admin. Please run as admin.
+2025-04-15 02:06:18,087 [INFO] ⬇️ Attempting to download: Geographical and temporal distribution of SARS-CoV-2 clades in the WHO European Region, January to June 2020. (DOI: 10.2807/1560-7917.ES.2020.25.32.2001410)
+2025-04-15 02:06:19,642 [INFO] 🔓 Open Access PDF found via Unpaywall: https://www.eurosurveillance.org/deliver/fulltext/eurosurveillance/25/32/eurosurv-25-32-2.pdf?itemId=%2Fcontent%2F10.2807%2F1560-7917.ES.2020.25.32.2001410&mimeType=pdf&containerItemId=content/eurosurveillance
+2025-04-15 02:06:20,358 [INFO] ✅ Downloaded via Unpaywall: Geographical and temporal distribution of SARS-CoV-2 clades in the WHO European Region, January to June 2020.
+2025-04-15 02:06:24,743 [ERROR] Error loading browser cookies: This operation requires admin. Please run as admin.
+2025-04-15 02:06:24,744 [INFO] ⬇️ Attempting to download: Limitation of spiral microchannels for particle separation in heterogeneous mixtures: Impact of particles' size and deformability. (DOI: 10.1063/5.0009673)
+2025-04-15 02:06:25,489 [INFO] 🔍 Trying direct DOI resolution: https://doi.org/10.1063/5.0009673
+2025-04-15 02:06:26,421 [INFO] 🏛️ Trying institutional access: https://login.eux.idm.oclc.org/login?url=https://doi.org/10.1063/5.0009673
+2025-04-15 02:06:26,606 [WARNING] Failed with status code: 200
+2025-04-15 02:06:27,708 [WARNING] Failed with status code: 200
+2025-04-15 02:06:29,809 [WARNING] Failed with status code: 200
+2025-04-15 02:06:29,812 [INFO] 📚 Trying ScienceDirect URL: https://login.eux.idm.oclc.org/login?url=https://www.sciencedirect.com/science/article/pii/S10106350009673/pdfft
+2025-04-15 02:06:30,011 [WARNING] Failed with status code: 200
+2025-04-15 02:06:31,116 [WARNING] Failed with status code: 200
+2025-04-15 02:06:33,220 [WARNING] Failed with status code: 200
+2025-04-15 02:06:33,220 [INFO] 📚 Trying ScienceDirect URL: https://login.eux.idm.oclc.org/login?url=https://www.sciencedirect.com/science/article/abs/pii/S10106350009673/pdfft
+2025-04-15 02:06:33,319 [WARNING] Failed with status code: 200
+2025-04-15 02:06:34,520 [WARNING] Failed with status code: 200
+2025-04-15 02:06:36,724 [WARNING] Failed with status code: 200
+2025-04-15 02:06:36,724 [INFO] 📚 Trying ScienceDirect URL: https://login.eux.idm.oclc.org/login?url=https://www.sciencedirect.com/science/article/S10106350009673/pdfft
+2025-04-15 02:06:36,827 [WARNING] Failed with status code: 200
+2025-04-15 02:06:37,930 [WARNING] Failed with status code: 200
+2025-04-15 02:06:40,039 [WARNING] Failed with status code: 200
+2025-04-15 02:06:40,040 [WARNING] ❌ Could not download: 10.1063/5.0009673 - Limitation of spiral microchannels for particle separation in heterogeneous mixtures: Impact of particles' size and deformability.
+2025-04-15 02:06:44,431 [ERROR] Error loading browser cookies: This operation requires admin. Please run as admin.
+2025-04-15 02:06:44,432 [INFO] ⬇️ Attempting to download: Quorum sensing in African trypanosomes. (DOI: 10.1016/j.mib.2019.07.001)
+2025-04-15 02:06:45,033 [INFO] 🔍 Trying direct DOI resolution: https://doi.org/10.1016/j.mib.2019.07.001
+2025-04-15 02:06:45,683 [INFO] 🏛️ Trying institutional access: https://login.eux.idm.oclc.org/login?url=https://doi.org/10.1016/j.mib.2019.07.001
+2025-04-15 02:06:45,849 [WARNING] Failed with status code: 200
+2025-04-15 02:06:46,955 [WARNING] Failed with status code: 200
+2025-04-15 02:06:49,060 [WARNING] Failed with status code: 200

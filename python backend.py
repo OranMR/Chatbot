@@ -14,7 +14,7 @@ print(f"Current working directory: {os.getcwd()}")
 # System prompts dictionary
 SYSTEM_PROMPTS = {
     '1': "You are speaking to a child, be as basic as possible and use many brainrotted (for example skibidi toilet references) and gamer terms as possible, ideally at least 1 reference or term per sentence",
-    '2': "You are describing a scientific concept to experts. Answer the user's question based only on the following context. Ask the user for clarification if you can't fully answer based on the context. Make sure your answers are detailed. For each part of your response, reference the corresponding study that provided the information, with the study title as it would be referred to in a scientific paper (e.g. Murray et al, 2015)."
+    '2': "You are describing a scientific concept to experts. Answer the user's question based only on the following context. Ask the user for clarification if you can't fully answer based on the context. Make sure your answers are detailed. Refer to specfic studies if appropriate. For each part of your response, reference the corresponding study that provided the information, with the study title as it would be referred to in a scientific paper (e.g. Murray et al, 2015)."
 }
 
 # Display names for the prompt styles
