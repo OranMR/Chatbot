@@ -4,19 +4,47 @@ import faiss
 import openai
 from openai import OpenAIError
 import os
+import glob
 
 # Initialize Flask app
 app = Flask(__name__, template_folder='frontend')
 
-# Debug info, prints path to pythond backend location
+# Debug info, prints path to python backend location
 print(f"Current working directory: {os.getcwd()}")
 
 # System prompts dictionary
 SYSTEM_PROMPTS = {
     '1': "You are speaking to a child, be as basic as possible and use many brainrotted (for example skibidi toilet references) and gamer terms as possible, ideally at least 1 reference or term per sentence",
-    '2': "You are describing a scientific concept to experts. Answer the user's question based only on the following context. Ask the user for clarification if you can't fully answer based on the context. Make sure your answers are detailed. Refer to specfic studies if appropriate. For each part of your response, reference the corresponding study that provided the information, with the study title as it would be referred to in a scientific paper (e.g. Murray et al, 2015)."
+    '2': "You are a chatbot representing Edinburgh Infectious Diseases, an organisation connecting scientists who conduct\
+    research into infectious diseases who are based in Edinburgh. You will be hosted on their website\
+    The users of the chatbot are familiar with the general biology of disease and related topics.\
+    Answer the user's question based primarily on the following context (studies conducted in the city of Edinburgh).\
+    Ask the user for clarification if you can't fully answer based on the context. \
+    Make sure your answers are detailed and refer to specfic studies listed in the context if appropriate.\
+    For each part of your response, reference the study that provided the information, with the study title \
+    as it would be referred to in a scientific paper, for example (Study title, 2015).\
+    Keep answers concise, but if detailed answers are warranted give them.\
+    Be professional but passionate about the work being done"
 }
 
+#     '2': "Persona: You are an RAG chatbot for the Edinburgh Infectious Diseases organization. You are professional, friendly, and passionate \
+#         about the research being conducted in Edinburgh. Your main goal is to facilitate collaboration among researchers by \
+#         providing accurate and insightful answers to their inquiries regarding ongoing research, concepts, themes, and networking\
+#         opportunities.\
+#     Rules:\
+#     Always maintain a professional yet approachable tone\
+#     Provide references for info provided using studies and data from the following context whenever possible\
+#     Be concise but thorough in your responses\
+#     Encourage further questions or networking among users\
+#     Directly address user needs and inquiries with relevant information\
+#     Research Focus:\
+# \
+#     Stay updated on current research themes and studies happening in Edinburgh related to infectious diseases\
+#     Highlight notable collaborations and networking opportunities within the organization\
+# "
+    
+    
+    
 # Display names for the prompt styles
 PROMPT_NAMES = {
     '1': "Basic",
@@ -30,42 +58,59 @@ openai.api_key = os.getenv('OPENAI_API_KEY')
 if not openai.api_key:
     raise ValueError("OpenAI API key not found. Please set the OPENAI_API_KEY environment variable.")
 
-# Load FAISS index and text chunks from their (single) directory. Currently must be named faiss_index.index etc. Change MyEPDFs code to name smth like 'saved papers'
-embedding_dir = "embeddings"
-index_path = os.path.join(embedding_dir, "faiss_index.index")
-text_chunks_path = os.path.join(embedding_dir, "text_chunks.txt")
+# Get embedding directory from environment variable or use default
+embedding_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "embeddings")
+print(f"Embeddings directory: {embedding_dir}")
 
-# Print debug info
-print(f"Embeddings directory: {embedding_dir}") #see line 34
-print(f"Index path: {index_path}") 
-print(f"Text chunks path: {text_chunks_path}")
+# Find all available FAISS index files and text chunk files
+index_files = glob.glob(os.path.join(embedding_dir, "*.index"))
+text_files = glob.glob(os.path.join(embedding_dir, "*.txt"))
 
-# Load the FAISS index and text chunks. Print statements ensure they are all loaded correctly
-try:
-    if os.path.exists(index_path):
-        embeddings = faiss.read_index(index_path)
-        print("FAISS index loaded successfully")
-    else:
-        print(f"Index file not found at {index_path}")
-        embeddings = None
-        
-    if os.path.exists(text_chunks_path):
-        with open(text_chunks_path, 'r') as f:
-            text_chunks = f.read().split("\n----\n")
-        print(f"Loaded {len(text_chunks)} text chunks successfully")
-    else:
-        print(f"Text chunks file not found at {text_chunks_path}")
-        text_chunks = []
-        
-except Exception as e:
-    print(f"Error loading embeddings: {str(e)}")
-    embeddings = None
-    text_chunks = []
+# Create dictionaries to store loaded indices and text chunks
+loaded_indices = {}
+loaded_text_chunks = {}
+
+# Load all available FAISS indices
+for index_path in index_files:
+    index_name = os.path.basename(index_path).split('.')[0]
+    try:
+        loaded_indices[index_name] = faiss.read_index(index_path)
+        print(f"FAISS index loaded successfully: {index_name}")
+    except Exception as e:
+        print(f"Error loading FAISS index {index_name}: {str(e)}")
+
+# Load all available text chunk files
+for text_path in text_files:
+    text_name = os.path.basename(text_path).split('.')[0]
+    try:
+        with open(text_path, 'r', encoding='utf-8') as f:
+            text_content = f.read().split("\n----\n")
+            loaded_text_chunks[text_name] = text_content
+            print(f"Loaded {len(text_content)} text chunks successfully from {text_name}")
+    except Exception as e:
+        print(f"Error loading text chunks {text_name}: {str(e)}")
+
+# Print available datasets
+print(f"Available indices: {list(loaded_indices.keys())}")
+print(f"Available text chunks: {list(loaded_text_chunks.keys())}")
 
 # Route to render the frontend
 @app.route('/')
 def index():
-    return render_template('index.html')
+    # Pass the available datasets to the frontend
+    return render_template('index.html', 
+                          indices=list(loaded_indices.keys()), 
+                          text_chunks=list(loaded_text_chunks.keys()),
+                          prompt_names=PROMPT_NAMES)
+
+# API endpoint to get available datasets
+@app.route('/api/datasets', methods=['GET'])
+def get_datasets():
+    return jsonify({
+        "indices": list(loaded_indices.keys()),
+        "text_chunks": list(loaded_text_chunks.keys()),
+        "prompt_styles": PROMPT_NAMES
+    })
 
 # Route to handle chat API requests
 @app.route('/api/chat', methods=['POST'])
@@ -76,6 +121,17 @@ def chat():
         user_query = data.get('message', '').strip()
         prompt_style = data.get('file')  # Now this is just the prompt style ID
         history = data.get('history', [])
+        
+        # Get dataset names from request
+        index_name = data.get('index_name')
+        text_chunks_name = data.get('text_chunks_name')
+        
+        # If no specific datasets are provided, use the first available ones
+        if not index_name and loaded_indices:
+            index_name = list(loaded_indices.keys())[0]
+        
+        if not text_chunks_name and loaded_text_chunks:
+            text_chunks_name = list(loaded_text_chunks.keys())[0]
 
         # Validate the user query and prompt style
         if not user_query or not prompt_style:
@@ -85,9 +141,16 @@ def chat():
         if prompt_style not in SYSTEM_PROMPTS:
             return jsonify({"error": "Invalid style selected"}), 400
             
-        # Check if embeddings were loaded successfully
-        if embeddings is None:
-            return jsonify({"error": "Embeddings not loaded. Please check your index file."}), 500
+        # Check if the requested index and text chunks exist
+        if index_name not in loaded_indices:
+            return jsonify({"error": f"Index '{index_name}' not found"}), 404
+            
+        if text_chunks_name not in loaded_text_chunks:
+            return jsonify({"error": f"Text chunks '{text_chunks_name}' not found"}), 404
+            
+        # Get the selected index and text chunks
+        embeddings = loaded_indices[index_name]
+        text_chunks = loaded_text_chunks[text_chunks_name]
 
         # Step 1: Embed the user's query
         response = openai.embeddings.create(
@@ -137,7 +200,11 @@ def chat():
         gpt_response = response.choices[0].message.content
 
         # Return the response to the frontend
-        return jsonify({"response": gpt_response})
+        return jsonify({
+            "response": gpt_response,
+            "used_index": index_name,
+            "used_text_chunks": text_chunks_name
+        })
 
     except OpenAIError as e:
         return jsonify({"error": f"Error communicating with GPT-4o: {str(e)}"}), 500

@@ -106,7 +106,7 @@ def store_embeddings_and_chunks(file, chunks, embeddings, filenames, output_dir=
     print(f"Saving chunks and embeddings for {file}...")
 
     # Save chunks with optional metadata
-    chunks_filepath = os.path.join(output_dir, f"{file}_text_chunks.txt")
+    chunks_filepath = os.path.join(output_dir, f"{file}.txt")
     with open(chunks_filepath, 'w') as f:
         for i, (chunk, filename) in enumerate(zip(chunks, filenames)):
             f.write(f"Source: {filename} | \n{chunk}\n----\n")
@@ -117,7 +117,7 @@ def store_embeddings_and_chunks(file, chunks, embeddings, filenames, output_dir=
     # Create and save FAISS index
     index = faiss.IndexFlatIP(embeddings.shape[1])
     index.add(embeddings)
-    index_filepath = os.path.join(output_dir, f"{file}_faiss.index")
+    index_filepath = os.path.join(output_dir, f"{file}.index")
     faiss.write_index(index, index_filepath)
 
     print(f"Successfully saved {len(chunks)} chunks and embeddings for {file}")
@@ -156,6 +156,6 @@ def processpdfs(base_directory):
 
 # Run the processing
 if __name__ == "__main__":
-    base_dir = '/Users/cex/OneDrive - University of Edinburgh/Biology/4th Year/Ecology Honours/Dissertation/Code/Test Papers'
+    base_dir = '/Users/cex/OneDrive - University of Edinburgh/Biology/4th Year/Ecology Honours/Dissertation/Code/Embedding Papers'
     processpdfs(base_dir)
     print("\n✅ Processing complete!")
