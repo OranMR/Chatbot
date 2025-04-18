@@ -89,7 +89,7 @@ def create_single_pdf(data, output_dir="abstract_pdfs_test"):
     filename = f"{shortened_title}-{author_part}"
 
     if len(filename) > 130:
-        filename = f"{shortened_title[:94]}... {author_part[:25]}"
+        filename = f"{shortened_title[:94]}... {author_part[27]}"
     
     # Add .pdf extension separately
     output_filename = f"{filename}.pdf"
@@ -111,7 +111,7 @@ def create_single_pdf(data, output_dir="abstract_pdfs_test"):
     return output_path
 
 def main():
-    csv_file = "C:/Users/cex/OneDrive - University of Edinburgh/Biology/4th Year/Ecology Honours/Dissertation/Code/Scrubbed papers/PMIDs.csv" 
+    csv_file = "C:/Users/cex/OneDrive - University of Edinburgh/Biology/4th Year/Ecology Honours/Dissertation/Code/Scrubbed papers/PMIDs test.csv" 
     df = pd.read_csv(csv_file)
 
     if "pmid" not in df.columns:
@@ -119,7 +119,7 @@ def main():
         return
 
     pmid_list = df["pmid"].dropna().astype(str).tolist()
-    output_dir = "abstract"
+    output_dir = "abstract_pdfs_test"
      
     print("🔍 Fetching PubMed records and creating PDFs...")
     for pmid in tqdm(pmid_list, desc="Processing abstracts"):
