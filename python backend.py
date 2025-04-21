@@ -9,12 +9,17 @@ import glob
 # Initialize Flask app
 app = Flask(__name__, template_folder='frontend')
 
-# Debug info, prints path to python backend location
-print(f"Current working directory: {os.getcwd()}")
+gpt_model="gpt-4o"
+
+# Display names for the prompt styles
+PROMPT_NAMES = {
+    '1': "Basic",
+    '2': "Advanced"
+}
 
 # System prompts dictionary
 SYSTEM_PROMPTS = {
-    '1': "You are speaking to a child, be as basic as possible and use many brainrotted (for example skibidi toilet references) and gamer terms as possible, ideally at least 1 reference or term per sentence",
+    '1': "",
     '2': "You are a chatbot representing Edinburgh Infectious Diseases, an organisation connecting scientists who conduct\
     research into infectious diseases who are based in Edinburgh. You will be hosted on their website\
     The users of the chatbot are familiar with the general biology of disease and related topics.\
@@ -24,7 +29,8 @@ SYSTEM_PROMPTS = {
     For each part of your response, reference the study that provided the information, with the study title \
     as it would be referred to in a scientific paper, for example (Study title, 2015).\
     Keep answers concise, but if detailed answers are warranted give them.\
-    Be professional but passionate about the work being done"
+    For short simple questions, such as definitional queries, give short simple responses.\
+    Be professional but passionate about the work being done. As you are a chatbot, keep messages conversational and digestible."
 }
 
 #     '2': "Persona: You are an RAG chatbot for the Edinburgh Infectious Diseases organization. You are professional, friendly, and passionate \
@@ -42,14 +48,10 @@ SYSTEM_PROMPTS = {
 #     Stay updated on current research themes and studies happening in Edinburgh related to infectious diseases\
 #     Highlight notable collaborations and networking opportunities within the organization\
 # "
+
     
-    
-    
-# Display names for the prompt styles
-PROMPT_NAMES = {
-    '1': "Basic",
-    '2': "Advanced"
-}
+# Debug info, prints path to python backend location
+print(f"Current working directory: {os.getcwd()}")
 
 # OpenAI API key setup from environment variable
 openai.api_key = os.getenv('OPENAI_API_KEY')
@@ -192,7 +194,7 @@ def chat():
             
         # Call GPT-4o with the conversation history and context
         response = openai.chat.completions.create(
-            model="gpt-4o",
+            model=gpt_model,
             messages=messages
         )
 
@@ -207,7 +209,7 @@ def chat():
         })
 
     except OpenAIError as e:
-        return jsonify({"error": f"Error communicating with GPT-4o: {str(e)}"}), 500
+        return jsonify({"error": f"Error communicating with {gpt_model}: {str(e)}"}), 500
 
     except Exception as e:
         import traceback

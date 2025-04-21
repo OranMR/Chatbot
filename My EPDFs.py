@@ -30,7 +30,12 @@ def preprocess_text(text):
     text = re.sub(r'(\w+)-\s+(\w+)', r'\1\2', text)
     
     # Clean up quotes and apostrophes
-    text = text.replace(''', "'").replace(''', "'").replace('"', '"').replace('"', '"')
+    text = (text
+    .replace("‘", "'")
+    .replace("’", "'")
+    .replace("“", '"')
+    .replace("”", '"')
+)
     
     # Remove URLs and emails if needed
     text = re.sub(r'https?://\S+|www\.\S+', '[URL]', text)
@@ -99,7 +104,6 @@ def generate_embeddings(chunks, batch_size=20): #in batches, is cheaper and fast
     return np.array(embeddings, dtype=np.float32)
 
 
-
 def store_embeddings_and_chunks(file, chunks, embeddings, filenames, output_dir='embeddings'):
     os.makedirs(output_dir, exist_ok=True)
 
@@ -107,9 +111,13 @@ def store_embeddings_and_chunks(file, chunks, embeddings, filenames, output_dir=
 
     # Save chunks with optional metadata
     chunks_filepath = os.path.join(output_dir, f"{file}.txt")
-    with open(chunks_filepath, 'w') as f:
+    with open(chunks_filepath, 'w', encoding='utf-8') as f:
         for i, (chunk, filename) in enumerate(zip(chunks, filenames)):
-            f.write(f"Source: {filename} | \n{chunk}\n----\n")
+            # write the chunk
+            f.write(f"Source: {filename}\n{chunk}")
+            # only append the delimiter if it's not the last chunk
+            if i < len(chunks) - 1:
+                f.write("\n----\n")
 
     # Normalize for cosine similarity
     faiss.normalize_L2(embeddings)
@@ -121,7 +129,6 @@ def store_embeddings_and_chunks(file, chunks, embeddings, filenames, output_dir=
     faiss.write_index(index, index_filepath)
 
     print(f"Successfully saved {len(chunks)} chunks and embeddings for {file}")
-
 
 
 def processpdfs(base_directory):

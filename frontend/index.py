@@ -218,7 +218,7 @@
 <body>
 
     <div class="left-side">
-        <img src="{{ url_for('static', filename='img/background.png') }}" alt="Course Logo">
+        <img src="{{ url_for('static', filename='https://icon2.cleanpng.com/20180625/ipc/aaz9nnbkt.webp') }}" alt="EID Logo">
         <h1>Edinburgh Infectious Diseases Chatbot</h1>
         <p>Select a file to get started! The Chatbot will answer your 
 questions based on a curated library of literature. Note that your chat 
